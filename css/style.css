@@ -2,5 +2,11 @@
 @import url("home-solutions.css");
 
 * {
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
 }
