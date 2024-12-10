@@ -13,17 +13,21 @@
   width: 100%;
   display: flex;
   overflow: hidden;
-  outline: 0.1px solid red;
+}
+
+.upper img,
+.lower img {
+  position: relative;
 }
 
 .upper img:hover,
 .lower img:hover {
-  position: relative;
   animation-name: mooveup;
   animation-duration: 1s;
   animation-play-state: running;
   animation-fill-mode: forwards;
 }
+
 .first {
   display: flex;
   justify-content: flex-end;
@@ -40,6 +44,6 @@
     top: 0px;
   }
   100% {
-    bottom: 100%;
+    bottom: 50%;
   }
 }

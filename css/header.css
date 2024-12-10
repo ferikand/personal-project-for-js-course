@@ -8,16 +8,17 @@ header {
     padding-left: 25px;
     padding-right: 40px;
     text-transform: capitalize;
+    display: flex;
+    align-items: center;
     h1,
     h2 {
       font-size: 1rem;
       font-weight: 700;
-      line-height: 47px;
+      line-height: 27px;
       .colorred {
         color: #dc0132;
         font-size: 1rem;
         font-weight: 700;
-        line-height: 47px;
       }
     }
   }
