@@ -19,3 +19,7 @@ footer {
   word-wrap: normal;
   padding-left: 35px;
 }
+.footer-text-ul {
+  list-style-type: none;
+  padding: 0px;
+}

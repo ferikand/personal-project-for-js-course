@@ -1,0 +1,16 @@
+.main {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 15px;
+  margin-top: 3px;
+}
+.left-blocks {
+  margin: auto;
+  position: relative;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+.fadeIn {
+  max-height: 30%;
+}
