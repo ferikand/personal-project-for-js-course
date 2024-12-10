@@ -13,3 +13,4 @@ document.body.addEventListener("htmx:afterOnLoad", () => {
   loadedPartialsCount++;
   if (loadedPartialsCount === totalPartials) init();
 });
+
