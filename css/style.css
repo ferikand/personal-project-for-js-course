@@ -1,8 +1,8 @@
 @import url("header.css");
 @import url("home-solutions.css");
+@import url("footer.css");
 
 * {
-  /* outline: 1px solid red; */
   box-sizing: border-box;
 }
 .container {

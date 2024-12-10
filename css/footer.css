@@ -1,0 +1,21 @@
+footer {
+  border-top: 3px solid #dc0132;
+  padding: 20px 0;
+  color: #333333;
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  bottom: 10px;
+}
+.last {
+  display: flex;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.footer-text {
+  text-wrap: normal;
+  word-wrap: normal;
+  padding-left: 35px;
+}
