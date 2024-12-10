@@ -11,3 +11,6 @@
   display: flex;
   flex-wrap: wrap;
 }
+#carouselAutoplaying {
+  width: 100%;
+}
