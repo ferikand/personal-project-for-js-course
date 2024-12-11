@@ -1,24 +1,25 @@
-@import url('header.css');
-@import url('home-solutions.css');
-@import url('footer.css');
-@import url('main.css');
-@import url('why-atmor.css');
+@import url("header.css");
+@import url("home-solutions.css");
+@import url("footer.css");
+@import url("main.css");
+@import url("why-atmor.css");
+@import url("heaters-applications.css");
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 .container {
-	position: relative;
-	display: flex;
-	flex-wrap: wrap;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
 }
 #carouselAutoplaying {
-	width: 100%;
+  width: 100%;
 }
 html,
 body {
-	height: 100%;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }

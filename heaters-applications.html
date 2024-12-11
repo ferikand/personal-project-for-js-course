@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atmor heaters applications</title>
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <script src="https://use.fontawesome.com/52ea412460.js"></script>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="common.header.partial.html"
+    ></header>
+
+    <div class="applications_main container container-fluid">
+      <div class="applPage">
+        <!-- <img class="img-fluid bigLogo" src="img/LOGO-ATMOR-EN-478X141.png" alt="Atmor" /> -->
+        <div class="appContainer container-fluid">
+          <div class="grayBcg container-fluid">
+            <div class="card shower container-fluid">
+              <img
+                class="appImg img-fluid"
+                src="img/Bath08-23.webp"
+                alt="shower"
+              />
+              <p><strong>Душ</strong></p>
+              <p>Приймаєте гарячий душ</p>
+              <div class="variantBtn showerBtn">Варіанти вибору</div>
+            </div>
+            <div class="card sink container-fluid">
+              <img
+                class="appImg img-fluid"
+                src="img/Cat-sink.webp"
+                alt="sink"
+              />
+              <p><strong>Мийка</strong></p>
+              <p>Відкрийте кран і вода відразу гаряча</p>
+              <div class="variantBtn sinkBtn">Варіанти вибору</div>
+            </div>
+            <div class="card home container-fluid">
+              <img
+                class="img-fluid appImg img-fluid"
+                src="img/46.webp"
+                alt="home"
+              />
+              <p><strong>Для помешкання</strong></p>
+              <p>Гаряча вода по всьому будинку</p>
+              <div class="variantBtn homeBtn">Варіанти вибору</div>
+            </div>
+            <div class="card business container-fluid">
+              <img
+                class="appImg img-fluid"
+                src="img/cat_commercial.webp"
+                alt="commercial"
+              />
+              <p><strong>Для бізнесу та офісу</strong></p>
+              <p>Рішення для різноманітних потреб</p>
+              <div class="variantBtn businessBtn">Варіанти вибору</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- heaters -->
+
+    <section class="heatersPage hidden container-fluid">
+      <div class="heaterSectionContainer container-fluid">
+        <!-- <img
+          class="backToAppl"
+          src="img/general-warranty-slide1.png"
+          alt="bath"
+        /> -->
+        <container class="heatersContaner container-fluid">
+          <a class="heatersLinkToItsPage" href="hotap.html">
+            <div class="heaterCard hotapEl container-fluid">
+              <img
+                class="img-fluid heaterCardImg"
+                src="img/Hotap_03.png"
+                alt="Hotap"
+              />
+              <p>Hotap 3,3kW</p>
+            </div>
+          </a>
+
+          <a href="basic.html" class="heatersLinkToItsPage">
+            <div class="heaterCard basicEl container-fluid">
+              <img
+                class="heaterCardImg"
+                src="img/210_white-1.png"
+                alt="Basic"
+              />
+              <p>Basic 5kW</p>
+            </div>
+          </a>
+
+          <a href="inline5.html" class="heatersLinkToItsPage">
+            <div class="heaterCard inline5KWEl container-fluid">
+              <img
+                class="heaterCardImg"
+                src="img/Atmor-800.png"
+                alt="Inline 5kW"
+              />
+              <p>Inline 5kW</p>
+            </div>
+          </a>
+
+          <a href="inline7.html" class="heatersLinkToItsPage">
+            <div class="heaterCard inline7KWEl container-fluid">
+              <img
+                class="heaterCardImg"
+                src="img/Atmor-800.png"
+                alt="Inline 7kW"
+              />
+              <p>Inline 7kW</p>
+            </div>
+          </a>
+        </container>
+      </div>
+    </section>
+
+    <footer
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="common.footer.partial.html"
+    ></footer>
+    <div class="alert-container container"></div>
+    <div
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="index.product-info.partial.html"
+    ></div>
+    <div
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="index.cart.partial.html"
+    ></div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+.applications_main {
+  display: flex;
+  justify-content: center;
+}
+.applPage {
+  /* min-height: 76vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.appContainer {
+  width: 100%;
+  align-self: center;
+}
+
+.grayBcg {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+
+  padding: 1px;
+  background-color: #7a7a7a;
+  margin: 5px;
+}
+@media (min-width: 768px) {
+  .grayBcg {
+    grid-template-columns: 2fr 2fr;
+  }
+}
+@media (min-width: 1440px) {
+  .grayBcg {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.card {
+  margin: 0, 5px;
+  align-items: center;
+  margin: 2px;
+  box-sizing: border-box;
+}
+.app-img {
+  margin: 5px;
+}
+.appImg {
+  max-width: 280px;
+}
+
+.variantBtn {
+  padding: 3px 5px;
+  border: 2px solid #dc0132;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.variantBtn:hover,
+.card:hover {
+  transform: scale(1.01);
+}
+.variantBtn:hover {
+  cursor: pointer;
+  color: #cbcbcb;
+  background-color: #333333;
+}
+
+.bigLogo {
+  max-width: 100%;
+  height: auto;
+}
+
+.bigLogo:hover,
+.backToAppl {
+  cursor: pointer;
+}
+
+/* heaters cards */
+
+.heatersContaner {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .heatersContaner {
+    grid-template-columns: 2fr 2fr;
+  }
+}
+@media (min-width: 1440px) {
+  .heatersContaner {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.heaterCard {
+  max-width: 322px;
+  max-height: 377px;
+  padding: 20px;
+  /* margin: 5px; */
+  border-radius: 10px;
+  box-shadow: -5px 1px 5px 3px rgba(0, 0, 0, 0.26);
+}
+
+.heaterCard:hover {
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.heaterCardImg {
+  max-width: 282px;
+  max-height: 282px;
+}
+
+.heaterSectionContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
