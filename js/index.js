@@ -3,6 +3,7 @@ function init() {
     "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
   );
   import("./home-solutions.js");
+  import('./why-atmor.js')
 }
 
 const totalPartials = document.querySelectorAll(
