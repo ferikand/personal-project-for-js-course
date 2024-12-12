@@ -1,4 +1,6 @@
-const variantBtn = document.querySelectorAll(".variantBtn");
+// import { productBigImgContainer, productInfoText } from "./product";
+
+const variantBtns = document.querySelectorAll(".variantBtn");
 const showerBtn = document.querySelector(".showerBtn");
 const sinkBtn = document.querySelector(".sinkBtn");
 const homeBtn = document.querySelector(".homeBtn");
@@ -15,11 +17,11 @@ const inline7KWEl = document.querySelector(".inline7KWEl");
 
 const applPage = document.querySelector(".applPage");
 
-variantBtn.forEach((node) => {
+variantBtns.forEach((node) => {
   node.addEventListener("click", (e) => {
     e.preventDefault();
-    heatersPage.classList.remove("hidden");
-    applPage.classList.toggle("hidden");
+    // heatersPage.classList.remove("hidden");
+    // applPage.classList.toggle("hidden");
 
     if (e.target === showerBtn) {
       hotapEl.classList.add("hidden");
@@ -45,6 +47,10 @@ variantBtn.forEach((node) => {
       inline5KWEl.classList.remove("hidden");
       inline7KWEl.classList.remove("hidden");
     }
-    scrollTo({ bottom: 0, behavior: "smooth" });
+    heatersPage.scrollIntoView({ behavior: "smooth" });
   });
+});
+
+hotapEl.addEventListener("click", (e) => {
+  // e.preventDefault();
 });

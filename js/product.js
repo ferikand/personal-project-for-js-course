@@ -1,82 +1,89 @@
-function updateProductPageFromJSON() {
-  console.log("Функція updateProductPageFromJSON запущена");
+const productBigImgContainer = document.querySelector(
+  ".productBigImgContainer"
+);
+const productInfoText = document.querySelector(".productInfoText");
 
-  const selectedProductId = localStorage.getItem("selectedProductId");
-  if (!selectedProductId) {
-    console.error("Не знайдено ID продукту в localStorage.");
-    return;
-  }
+// export { productBigImgContainer, productInfoText };
 
-  fetch("assets/json/products.json")
-    .then((response) => response.json())
-    .then((allProducts) => {
-      const productData = allProducts.find(
-        (item) => item.dataId === selectedProductId
-      );
-      if (!productData) {
-        console.error("Продукт з ID:", selectedProductId, "не знайдено.");
-        return;
-      }
+// function updateProductPageFromJSON() {
+//   console.log("Функція updateProductPageFromJSON запущена");
 
-      document.getElementById("mainImage").src = productData.imgSrc;
-      document.getElementById("mainImage").alt = productData.imgAlt;
+//   const selectedProductId = localStorage.getItem("selectedProductId");
+//   if (!selectedProductId) {
+//     console.error("Не знайдено ID продукту в localStorage.");
+//     return;
+//   }
 
-      document.querySelector(".product__thumbnail").src =
-        productData.thumbnailSrc;
-      document.querySelector(".product__thumbnail").alt = productData.imgAlt;
+//   fetch("assets/json/products.json")
+//     .then((response) => response.json())
+//     .then((allProducts) => {
+//       const productData = allProducts.find(
+//         (item) => item.dataId === selectedProductId
+//       );
+//       if (!productData) {
+//         console.error("Продукт з ID:", selectedProductId, "не знайдено.");
+//         return;
+//       }
 
-      document.getElementById("productName").textContent =
-        productData.productCardMainInfo;
-      document.getElementById(
-        "productCode"
-      ).textContent = `Product code ${productData.productCode}`;
-      document.getElementById(
-        "productPrice"
-      ).textContent = `$${productData.productCardPrice
-        .toFixed(2)
-        .replace(".", ",")}`;
+//       document.getElementById("mainImage").src = productData.imgSrc;
+//       document.getElementById("mainImage").alt = productData.imgAlt;
 
-      document.querySelector(".product__description").textContent =
-        productData.description || "Опис продукту недоступний.";
+//       document.querySelector(".product__thumbnail").src =
+//         productData.thumbnailSrc;
+//       document.querySelector(".product__thumbnail").alt = productData.imgAlt;
 
-      const specsList = document.querySelector(".product__specs-list");
-      specsList.innerHTML = "";
-      (productData.specs || []).forEach((spec) => {
-        const li = document.createElement("li");
-        li.className = "product__specs-item";
-        li.textContent = spec;
-        specsList.appendChild(li);
-      });
-      document.getElementById("modalProductName").textContent =
-        productData.imgAlt;
-      document.getElementById("modalThumbnailImage").src =
-        productData.thumbnailSrc;
-      document.getElementById("modalThumbnailImage").alt = productData.imgAlt;
-      document.getElementById("modalMainImage").src = productData.imgSrc;
-      document.getElementById("modalMainImage").alt = productData.imgAlt;
-    })
+//       document.getElementById("productName").textContent =
+//         productData.productCardMainInfo;
+//       document.getElementById(
+//         "productCode"
+//       ).textContent = `Product code ${productData.productCode}`;
+//       document.getElementById(
+//         "productPrice"
+//       ).textContent = `$${productData.productCardPrice
+//         .toFixed(2)
+//         .replace(".", ",")}`;
 
-    .catch((error) => {
-      console.error("Помилка завантаження JSON:", error);
-    });
-}
-function setupQuantityControls() {
-  const quantityInput = document.getElementById("quantity");
-  const arrowUp = document.querySelector(".custom__arrow-up");
-  const arrowDown = document.querySelector(".custom__arrow-down");
+//       document.querySelector(".product__description").textContent =
+//         productData.description || "Опис продукту недоступний.";
 
-  if (quantityInput && arrowUp && arrowDown) {
-    arrowUp.onclick = function () {
-      quantityInput.value = parseInt(quantityInput.value) + 1;
-    };
+//       const specsList = document.querySelector(".product__specs-list");
+//       specsList.innerHTML = "";
+//       (productData.specs || []).forEach((spec) => {
+//         const li = document.createElement("li");
+//         li.className = "product__specs-item";
+//         li.textContent = spec;
+//         specsList.appendChild(li);
+//       });
+//       document.getElementById("modalProductName").textContent =
+//         productData.imgAlt;
+//       document.getElementById("modalThumbnailImage").src =
+//         productData.thumbnailSrc;
+//       document.getElementById("modalThumbnailImage").alt = productData.imgAlt;
+//       document.getElementById("modalMainImage").src = productData.imgSrc;
+//       document.getElementById("modalMainImage").alt = productData.imgAlt;
+//     })
 
-    arrowDown.onclick = function () {
-      if (parseInt(quantityInput.value) > 1) {
-        quantityInput.value = parseInt(quantityInput.value) - 1;
-      }
-    };
-  }
-}
+//     .catch((error) => {
+//       console.error("Помилка завантаження JSON:", error);
+//     });
+// }
+// function setupQuantityControls() {
+//   const quantityInput = document.getElementById("quantity");
+//   const arrowUp = document.querySelector(".custom__arrow-up");
+//   const arrowDown = document.querySelector(".custom__arrow-down");
 
-setupQuantityControls();
-updateProductPageFromJSON();
+//   if (quantityInput && arrowUp && arrowDown) {
+//     arrowUp.onclick = function () {
+//       quantityInput.value = parseInt(quantityInput.value) + 1;
+//     };
+
+//     arrowDown.onclick = function () {
+//       if (parseInt(quantityInput.value) > 1) {
+//         quantityInput.value = parseInt(quantityInput.value) - 1;
+//       }
+//     };
+//   }
+// }
+
+// setupQuantityControls();
+// updateProductPageFromJSON();

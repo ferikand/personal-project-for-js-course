@@ -5,6 +5,7 @@ function init() {
   import("./home-solutions.js");
   import("./why-atmor.js");
   import("./heaters-applications.js");
+  import("./product.js");
 }
 
 const totalPartials = document.querySelectorAll(
