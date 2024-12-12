@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atmor</title>
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <script src="https://use.fontawesome.com/52ea412460.js"></script>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="common.header.partial.html"
+    ></header>
+    <div class="product_main container container-fluid">
+      <div class="productInfoContainer container container-fluid">
+        <div class="productBigImgContainer">
+          <img
+            class="productBigImg img-fluid"
+            src="img/Hotap_03.png"
+            alt="Hotap_big_img"
+          />
+        </div>
+
+        <div class="productInfo container container-fluid">
+          <article class="productInfoText container container-fluid">
+            <h2>Hotap</h2>
+            <p>
+              Hotap - Новий змішувач від Atmor – ідеальне рішення для гарячої
+              води в раковині в офісі, в саду та в громадських місцях.
+            </p>
+
+            <p>Змішувачі для миттєвого нагріву води</p>
+
+            <p>
+              Вбудована і прихована система підігріву всередині корпусу
+              змішувача без необхідності використання сонячного/електричного
+              нагрівача
+            </p>
+            <p>Зручне і просте підключення, без електрика</p>
+            <p>
+              Економія місця – без необхідності встановлення додаткового
+              зовнішнього водонагрівача
+            </p>
+            <p>Інноваційний дизайн</p>
+            <p>
+              Різноманітність кольорів – білий, хром, матовий нікель, чорний
+            </p>
+            <p>Можливість підключення садового шланга до високої моделі</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="stuffing"></div>
+
+    <footer
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="common.footer.partial.html"
+    ></footer>
+    <div class="alert-container container"></div>
+    <div
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="index.product-info.partial.html"
+    ></div>
+    <div
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="index.cart.partial.html"
+    ></div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

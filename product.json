@@ -1,0 +1,33 @@
+[
+  {
+    "dataId": "jbl_rr-56",
+    "imgSrc": "assets/images/img-products-big/jbl_rr-56-big.png",
+    "imgAlt": "JBL RR-56",
+    "thumbnailSrc": "assets/images/speakers_pics/jbl_rr-56-thumbnail.png",
+    "productCardMainInfo": "JBL RR-56 (76967)",
+    "productCardPrice": 110.0,
+    "productCode": 21,
+    "description": "Take this wireless speaker to the beach, use it in a car or outdoors — wherever and whenever you are. Express yourself and enjoy music listening without limits.",
+    "specs": [
+      "Battery life – 20 hours",
+      "Battery charge time – 4 hours",
+      "Waterproof – yes, IPX7",
+      "Number of gadgets – up to 2 smartphones can be connected"
+    ]
+  },
+  {
+    "dataId": "sennheiser_sn-67",
+    "imgSrc": "assets/images/img-products-big/sennheiser_sn-67-big.png",
+    "imgAlt": "Sennheiser SN-67",
+    "thumbnailSrc": "assets/images/products_pics/sennheiser_sn-67.png",
+    "productCardMainInfo": "Sennheiser SN-67 (76967)",
+    "productCardPrice": 213.0,
+    "productCode": 27,
+    "description": "The professional Sennheiser SN-67 headphones have been designed to cater to your audio experience and make the sound as clear and high-quality as possible.",
+    "specs": [
+      "Frequency response — 10 – 30,000 Hz",
+      "Battery life — up to 30 hours",
+      "Wireless range — 10 m"
+    ]
+  }
+]

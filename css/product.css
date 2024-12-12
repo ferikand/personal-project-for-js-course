@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+  .productBigImgContainer,
+  .productInfo {
+    max-width: 45%;
+  }
+}
