@@ -47,6 +47,10 @@
   max-width: 280px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .variantBtn {
   padding: 3px 5px;
   border: 2px solid #dc0132;

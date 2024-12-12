@@ -76,7 +76,7 @@ header {
 .header {
   font-size: 18px;
   font-weight: 700;
-  line-height: 47px;
+  /* line-height: 47px; */
   color: #333333;
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +90,7 @@ header {
   color: #dc0132;
   font-size: 18px;
   font-weight: 700;
-  line-height: 47px;
+  /* line-height: 47px; */
 }
 h1,
 h2 {
