@@ -76,26 +76,28 @@
 
 /* heaters cards */
 
+.heaterSectionContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .heatersContaner {
-  display: grid;
-  grid-template-columns: 1fr;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-@media (min-width: 768px) {
-  .heatersContaner {
-    grid-template-columns: 2fr 2fr;
-  }
-}
-@media (min-width: 1440px) {
-  .heatersContaner {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
+
+.block-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .heaterCard {
-  max-width: 322px;
-  max-height: 377px;
+  max-width: 260px;
+  max-height: 304px;
   padding: 20px;
-  /* margin: 5px; */
+  margin: 5px;
   border-radius: 10px;
   box-shadow: -5px 1px 5px 3px rgba(0, 0, 0, 0.26);
 }
@@ -105,13 +107,10 @@
   cursor: pointer;
 }
 
-.heaterCardImg {
-  max-width: 282px;
-  max-height: 282px;
+.stuffing {
+  height: 100%;
 }
 
-.heaterSectionContainer {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
+.hidden {
+  display: none;
 }
