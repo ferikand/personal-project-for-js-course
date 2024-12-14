@@ -1,8 +1,8 @@
 const heatersContainer = document.querySelector(".heatersContainer");
 let applicationsToApply = localStorage.getItem("selectedSolution");
-const grayBcg = document.querySelector("#grayBcg");
+const grayBcg = document.querySelector(".grayBcg");
 
-document.addEventListener("click", (e) => {
+grayBcg.addEventListener("click", (e) => {
   if (e.target.closest("#shower")) {
     localStorage.setItem("selectedSolution", "shower");
     applicationsToApply = localStorage.getItem("selectedSolution");
