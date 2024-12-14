@@ -23,6 +23,7 @@ document.addEventListener("click", (e) => {
     applicationsToApply = localStorage.getItem("selectedSolution");
     renderProducts(applicationsToApply);
   }
+  heatersPage.scrollIntoView({ behavior: "smooth" });
 });
 
 const renderProducts = (applicationsToApply) => {
