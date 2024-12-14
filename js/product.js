@@ -8,11 +8,11 @@ const getSelectedObjOfElement = (id) => {
     .then((response) => response.json())
     .then((data) => data.find((el) => el.id === id));
 };
-
-getSelectedObjOfElement(selectedElementId)
-  .then((obj) => {
-    productBigImg.setAttribute("src", obj.imgSrc);
-    productName.textContent = obj.productName.replaceAll("_", " ");
-    productInfoText.innerHTML = obj.productInfo;
-  })
-  .catch((error) => console.log(error.message));
+if (selectedElementId)
+  getSelectedObjOfElement(selectedElementId)
+    .then((obj) => {
+      productBigImg.setAttribute("src", obj.imgSrc);
+      productName.textContent = obj.productName.replaceAll("_", " ");
+      productInfoText.innerHTML = obj.productInfo;
+    })
+    .catch((error) => console.log(error.message));

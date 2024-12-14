@@ -5,6 +5,7 @@
 @import url("why-atmor.css");
 @import url("heaters-applications.css");
 @import url("product.css");
+@import url("add-product.css");
 
 * {
   box-sizing: border-box;

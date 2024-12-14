@@ -9,6 +9,7 @@ function init() {
   // import("./alert.js");
   // import("./product-list.js");
   // import("./product-service.js");
+  import("./login-form.js");
 }
 
 const totalPartials = document.querySelectorAll(

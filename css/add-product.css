@@ -1,0 +1,7 @@
+#productForm {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  display: inline-block;
+}

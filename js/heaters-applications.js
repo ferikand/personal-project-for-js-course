@@ -1,30 +1,30 @@
 const heatersContainer = document.querySelector(".heatersContainer");
 let applicationsToApply = localStorage.getItem("selectedSolution");
 const grayBcg = document.querySelector(".grayBcg");
-
-grayBcg.addEventListener("click", (e) => {
-  if (e.target.closest("#shower")) {
-    localStorage.setItem("selectedSolution", "shower");
-    applicationsToApply = localStorage.getItem("selectedSolution");
-    renderProducts(applicationsToApply);
-  }
-  if (e.target.closest("#sink")) {
-    localStorage.setItem("selectedSolution", "sink");
-    applicationsToApply = localStorage.getItem("selectedSolution");
-    renderProducts(applicationsToApply);
-  }
-  if (e.target.closest("#home")) {
-    localStorage.setItem("selectedSolution", "home");
-    applicationsToApply = localStorage.getItem("selectedSolution");
-    renderProducts(applicationsToApply);
-  }
-  if (e.target.closest("#business")) {
-    localStorage.setItem("selectedSolution", "business");
-    applicationsToApply = localStorage.getItem("selectedSolution");
-    renderProducts(applicationsToApply);
-  }
-  heatersPage.scrollIntoView({ behavior: "smooth" });
-});
+if (grayBcg)
+  grayBcg.addEventListener("click", (e) => {
+    if (e.target.closest("#shower")) {
+      localStorage.setItem("selectedSolution", "shower");
+      applicationsToApply = localStorage.getItem("selectedSolution");
+      renderProducts(applicationsToApply);
+    }
+    if (e.target.closest("#sink")) {
+      localStorage.setItem("selectedSolution", "sink");
+      applicationsToApply = localStorage.getItem("selectedSolution");
+      renderProducts(applicationsToApply);
+    }
+    if (e.target.closest("#home")) {
+      localStorage.setItem("selectedSolution", "home");
+      applicationsToApply = localStorage.getItem("selectedSolution");
+      renderProducts(applicationsToApply);
+    }
+    if (e.target.closest("#business")) {
+      localStorage.setItem("selectedSolution", "business");
+      applicationsToApply = localStorage.getItem("selectedSolution");
+      renderProducts(applicationsToApply);
+    }
+    heatersPage.scrollIntoView({ behavior: "smooth" });
+  });
 
 const renderProducts = (applicationsToApply) => {
   fetch("../product.json")
@@ -66,5 +66,4 @@ if (heatersContainer) {
     }
   });
 }
-
-renderProducts(applicationsToApply);
+if (heatersContainer) renderProducts(applicationsToApply);
