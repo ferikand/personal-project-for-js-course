@@ -25,5 +25,4 @@ document.addEventListener("click", (e) => {
   if (tagetId === "homeImg") selectedSolution = "home";
   if (tagetId === "businessImg") selectedSolution = "business";
   localStorage.setItem("selectedSolution", selectedSolution);
-  console.log(localStorage.getItem("selectedSolution"));
 });
