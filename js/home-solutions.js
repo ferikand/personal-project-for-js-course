@@ -15,3 +15,15 @@ const setBlockHeights = () => {
 setBlockHeights();
 
 window.addEventListener("resize", setBlockHeights);
+
+document.addEventListener("click", (e) => {
+  let selectedSolution = "business";
+
+  let tagetId = e.target.getAttribute("id");
+  if (tagetId === "showerImg") selectedSolution = "shower";
+  if (tagetId === "sinkImg") selectedSolution = "sink";
+  if (tagetId === "homeImg") selectedSolution = "home";
+  if (tagetId === "businessImg") selectedSolution = "business";
+  localStorage.setItem("selectedSolution", selectedSolution);
+  console.log(localStorage.getItem("selectedSolution"));
+});

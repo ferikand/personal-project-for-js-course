@@ -1,54 +1,63 @@
-const variantBtns = document.querySelectorAll(".variantBtn");
-const showerBtn = document.querySelector(".showerBtn");
-const sinkBtn = document.querySelector(".sinkBtn");
-const homeBtn = document.querySelector(".homeBtn");
-const businessBtn = document.querySelector(".businessBtn");
+const heatersContainer = document.querySelector(".heatersContainer");
+let applicationsToApply = localStorage.getItem("selectedSolution");
+const grayBcg = document.querySelector("#grayBcg");
+console.log(grayBcg);
 
-const heatersPage = document.querySelector("#heatersPage");
-
-const hotapEl = document.querySelector(".hotapEl");
-const basicEl = document.querySelector(".basicEl");
-const inline5KWEl = document.querySelector(".inline5KWEl");
-const inline7KWEl = document.querySelector(".inline7KWEl");
-
-const heatersContaner = document.querySelector(".heatersContaner");
-
-variantBtns.forEach((node) => {
-  node.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (e.target === showerBtn) {
-      hotapEl.classList.add("hidden");
-      basicEl.classList.remove("hidden");
-      inline5KWEl.classList.remove("hidden");
-      inline7KWEl.classList.remove("hidden");
-    }
-    if (e.target === sinkBtn) {
-      hotapEl.classList.remove("hidden");
-      basicEl.classList.add("hidden");
-      inline5KWEl.classList.remove("hidden");
-      inline7KWEl.classList.remove("hidden");
-    }
-    if (e.target === homeBtn) {
-      hotapEl.classList.remove("hidden");
-      basicEl.classList.remove("hidden");
-      inline5KWEl.classList.remove("hidden");
-      inline7KWEl.classList.remove("hidden");
-    }
-    if (e.target === businessBtn) {
-      hotapEl.classList.remove("hidden");
-      basicEl.classList.remove("hidden");
-      inline5KWEl.classList.remove("hidden");
-      inline7KWEl.classList.remove("hidden");
-    }
-    heatersPage.scrollIntoView({ behavior: "smooth" });
-  });
+document.addEventListener("click", (e) => {
+  if (e.target.closest("#shower")) {
+    localStorage.setItem("selectedSolution", "shower");
+    applicationsToApply = localStorage.getItem("selectedSolution");
+    renderProducts(applicationsToApply);
+  }
+  if (e.target.closest("#sink")) {
+    localStorage.setItem("selectedSolution", "sink");
+    applicationsToApply = localStorage.getItem("selectedSolution");
+    renderProducts(applicationsToApply);
+  }
+  if (e.target.closest("#home")) {
+    localStorage.setItem("selectedSolution", "home");
+    applicationsToApply = localStorage.getItem("selectedSolution");
+    renderProducts(applicationsToApply);
+  }
+  if (e.target.closest("#business")) {
+    localStorage.setItem("selectedSolution", "business");
+    applicationsToApply = localStorage.getItem("selectedSolution");
+    renderProducts(applicationsToApply);
+  }
 });
 
-if (heatersContaner) {
-  heatersContaner.addEventListener("click", (e) => {
-    const selectedElement = e.target.closest("[data-id]");
+const renderProducts = (applicationsToApply) => {
+  fetch("../product.json")
+    .then((response) => response.json())
+    .then((arr) => {
+      heatersContainer.innerHTML = "";
+      arr
+        .filter((obj) => obj.application.includes(applicationsToApply))
+        .forEach((obj) => {
+          const heaterCardHtml = `
+          <a data-id="${
+            obj.id
+          }" href="product.html" class="heatersLinkToItsPage">
+            <div id="${obj.id}" class="heaterCard ${
+            obj.id
+          } container container-fluid">
+              <img class="img-fluid heater-card heaterCardImg" src="${
+                obj.imgSrc
+              }" alt="${obj.imgAlt}" />
+              <p>${obj.productName.replaceAll("_", " ")}</p>
+            </div>
+          </a>`;
+          heatersContainer.insertAdjacentHTML("beforeend", heaterCardHtml);
+        });
+    })
+    .catch((error) => {
+      heatersContainer.innerHTML = `<p>Ошибка при загрузке товаров: ${error.message}</p>`;
+    });
+};
 
+if (heatersContainer) {
+  heatersContainer.addEventListener("click", (e) => {
+    const selectedElement = e.target.closest("[data-id]");
     if (selectedElement) {
       localStorage.setItem(
         "selectedElement",
@@ -57,3 +66,5 @@ if (heatersContaner) {
     }
   });
 }
+
+renderProducts(applicationsToApply);

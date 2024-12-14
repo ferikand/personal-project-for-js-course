@@ -14,7 +14,7 @@
   align-self: center;
 }
 
-.grayBcg {
+#grayBcg {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
@@ -24,12 +24,12 @@
   margin: 5px;
 }
 @media (min-width: 768px) {
-  .grayBcg {
+  #grayBcg {
     grid-template-columns: 2fr 2fr;
   }
 }
 @media (min-width: 1440px) {
-  .grayBcg {
+  #grayBcg {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
@@ -38,13 +38,7 @@
   margin: 0, 5px;
   align-items: center;
   margin: 2px;
-  box-sizing: border-box;
-}
-.app-img {
-  margin: 5px;
-}
-.appImg {
-  max-width: 280px;
+  flex-direction: row;
 }
 
 a {
@@ -76,6 +70,16 @@ a {
 .bigLogo:hover,
 .backToAppl {
   cursor: pointer;
+}
+.application-img_container {
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  padding: 0;
+}
+.application-info_container {
+  flex-direction: column;
+  max-width: 50%;
 }
 
 /* heaters cards */
