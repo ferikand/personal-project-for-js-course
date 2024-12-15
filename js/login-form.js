@@ -7,10 +7,12 @@ if (loginForm)
 
     fetch("../users.json")
       .then((response) => response.json())
-      .then((users) =>
-        users.find(
-          (user) => user.username === username && user.password === password
-        )
-      )
-      .then((window.location.href = "add_product.html"));
+      .then((users) => {
+        const admin = users.find(
+          (user) => user.login === username && user.password === password
+        );
+        if (admin) {
+          window.location.href = "add_product.html";
+        }
+      });
   });
