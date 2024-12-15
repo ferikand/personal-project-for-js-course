@@ -1,3 +1,5 @@
+// add product
+
 const productForm = document.getElementById("productForm");
 if (productForm)
   productForm.addEventListener("submit", function (e) {
@@ -42,4 +44,21 @@ if (productForm)
         console.error("Error:", error);
         alert("Error adding product");
       });
+  });
+
+// delete product
+
+const productDeleteForm = document.getElementById("productDeleteForm");
+if (productDeleteForm)
+  productDeleteForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const idDelete = document.getElementById("idDelete").value;
+    console.log(idDelete);
+
+    fetch("http://localhost:3000/products")
+      .then((response) => response.json())
+      .then((products) =>
+        products.forEach((product) => product.id === idDelete)
+      );
   });

@@ -4,37 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add new product</title>
+    <link rel="stylesheet" href="./css/add-product.css" />
   </head>
   <body>
-    <a href="index.html">Main page</a>
-    <form id="productForm">
-      <label for="applications">Applications:</label>
-      <input
-        placeholder="sink, shower, home, business"
-        type="text"
-        id="applications"
-        name="applications"
-        required
-      />
-      <br />
-      <label for="productName">Product Name:</label>
-      <input type="text" id="productName" name="productName" required /><br />
-      <label for="price">Price:</label>
-      <input type="number" id="price" name="price" required /><br />
-      <label for="imgSrc">Image filepath:</label>
-      <input type="text" id="imgSrc" name="imgSrc" required /><br />
-      <label for="id">id:</label>
-      <input type="text" id="id" name="id" required /><br />
-      <label for="productInfo">productInfo:</label>
-      <textarea
-        type="text"
-        id="productInfo"
-        name="productInfo"
-        required
-      ></textarea
-      ><br />
-      <button type="submit">Add Product</button>
-    </form>
+    <div class="form-container container container-fluid">
+      <a href="index.html">Main page</a>
+      <form id="productForm">
+        <label for="applications">Applications:</label>
+        <input
+          placeholder="sink, shower, home, business"
+          type="text"
+          id="applications"
+          name="applications"
+          required
+        />
+
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required />
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required />
+        <label for="imgSrc">Image filepath:</label>
+        <input type="text" id="imgSrc" name="imgSrc" required />
+        <label for="id">id:</label>
+        <input type="text" id="id" name="id" required />
+        <label for="productInfo">productInfo:</label>
+        <textarea
+          type="text"
+          id="productInfo"
+          name="productInfo"
+          required
+        ></textarea>
+        <button type="submit">Add Product</button>
+      </form>
+
+      <form id="productDeleteForm">
+        <label for="idDelete">Enter product id you want to delete:</label>
+        <input type="text" id="idDelete" name="idDelete" required />
+        <button type="submit" id="deleteProduct">Delete product</button>
+      </form>
+
+      <form id="productChangeForm">
+        <label for="idChange">Enter product id you want to Change:</label>
+        <input type="text" id="idChange" name="idChange" required />
+        <button type="submit" id="changeProduct">Change product</button>
+      </form>
+    </div>
 
     <script src="./js/add-product.js"></script>
   </body>

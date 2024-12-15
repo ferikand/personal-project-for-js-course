@@ -131,3 +131,11 @@ nav ul li.active {
 .fa {
   font-size: 35px !important;
 }
+.loginLink {
+  position: absolute;
+  top: 0;
+  right: 0;
+  p {
+    padding: 15px;
+  }
+}
