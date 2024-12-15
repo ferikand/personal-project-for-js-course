@@ -1,7 +1,7 @@
 const selectedElementId = localStorage.getItem("selectedElement");
 const productBigImg = document.querySelector(".productBigImg");
 const productName = document.querySelector(".productInfoText h2");
-const productInfoText = document.querySelector(".productInfoText p");
+const productInfoText = document.querySelector(".productInfoText span");
 
 const getSelectedObjOfElement = (id) => {
   return fetch("../products.json")
@@ -13,6 +13,6 @@ if (selectedElementId)
     .then((obj) => {
       productBigImg.setAttribute("src", obj.imgSrc);
       productName.textContent = obj.productName.replaceAll("_", " ");
-      productInfoText.innerHTML = obj.productInfo;
+      productInfoText.innerText = obj.productInfo;
     })
     .catch((error) => console.log(error.message));
