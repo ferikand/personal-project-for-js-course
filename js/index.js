@@ -6,10 +6,8 @@ function init() {
   import("./why-atmor.js");
   import("./heaters-applications.js");
   import("./product.js");
-  // import("./alert.js");
-  // import("./product-list.js");
-  // import("./product-service.js");
   import("./login-form.js");
+  import("./add-product.js");
 }
 
 const totalPartials = document.querySelectorAll(

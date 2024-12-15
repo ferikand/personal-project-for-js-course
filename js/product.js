@@ -4,7 +4,7 @@ const productName = document.querySelector(".productInfoText h2");
 const productInfoText = document.querySelector(".productInfoText p");
 
 const getSelectedObjOfElement = (id) => {
-  return fetch("../product.json")
+  return fetch("../products.json")
     .then((response) => response.json())
     .then((data) => data.find((el) => el.id === id));
 };
