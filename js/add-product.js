@@ -1,19 +1,18 @@
 // add product
 
-const productForm = document.getElementById("productForm");
+const productForm = document.getElementById("productForm")
 if (productForm)
   productForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const application = [].concat(
-      document.getElementById("applications").value
-    );
-    const productName = document.getElementById("productName").value;
-    const price = document.getElementById("price").value;
-    const imgSrc = document.getElementById("imgSrc").value;
-    const imgAlt = productName;
-    const id = document.getElementById("id").value;
-    const productInfo = document.getElementById("productInfo").value;
+    const application = [].concat(document.getElementById("applications").value)
+    const productName = document.getElementById("productName").value
+    const price = document.getElementById("price").value
+    const imgSrc = document.getElementById("imgSrc").value
+    const imgAlt = productName
+    const id = document.getElementById("id").value
+    const text = document.getElementById("productInfo").value
+    const productInfo = `<p>${text}</p>`
 
     const newProduct = {
       application,
@@ -23,7 +22,7 @@ if (productForm)
       imgAlt,
       id,
       productInfo,
-    };
+    }
 
     fetch("http://localhost:3000/add-product", {
       method: "POST",
@@ -34,31 +33,28 @@ if (productForm)
     })
       .then((response) => {
         if (response.ok) {
-          alert("Product added successfully!");
-          document.getElementById("productForm").reset();
+          alert("Product added successfully!")
+          document.getElementById("productForm").reset()
         } else {
-          alert("Error adding product");
+          alert("Error adding product")
         }
       })
       .catch((error) => {
-        console.error("Error:", error);
-        alert("Error adding product");
-      });
-  });
+        console.error("Error:", error)
+        alert("Error adding product")
+      })
+  })
 
 // delete product
 
-const productDeleteForm = document.getElementById("productDeleteForm");
+const productDeleteForm = document.getElementById("productDeleteForm")
 if (productDeleteForm)
   productDeleteForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const idDelete = document.getElementById("idDelete").value;
-    console.log(idDelete);
+    const idDelete = document.getElementById("idDelete").value
 
-    fetch("http://localhost:3000/products")
-      .then((response) => response.json())
-      .then((products) =>
-        products.forEach((product) => product.id === idDelete)
-      );
-  });
+    fetch(`http://localhost:3000/delete-product/${idDelete}`, {
+      method: "DELETE",
+    })
+  })
