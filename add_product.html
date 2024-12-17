@@ -25,7 +25,7 @@
         <input type="number" id="price" name="price" required />
         <label for="imgSrc">Image filepath:</label>
         <input type="text" id="imgSrc" name="imgSrc" required />
-        <label for="id">id:</label>
+        <label for="id">ID:</label>
         <input type="text" id="id" name="id" required />
         <label for="productInfo">productInfo:</label>
         <textarea
@@ -38,15 +38,35 @@
       </form>
 
       <form id="productDeleteForm">
-        <label for="idDelete">Enter product id you want to delete:</label>
+        <label for="idDelete">Enter product ID you want to delete:</label>
         <input type="text" id="idDelete" name="idDelete" required />
         <button type="submit" id="deleteProduct">Delete product</button>
       </form>
 
       <form id="productChangeForm">
-        <label for="idChange">Enter product id you want to Change:</label>
+        <label for="applicationsChange">Applications to change:</label>
+        <input
+          placeholder="sink, shower, home, business"
+          type="text"
+          id="applicationsChange"
+          name="applicationsChange"
+        />
+
+        <label for="productNameChange">Product Name to change:</label>
+        <input type="text" id="productNameChange" name="productNameChange" />
+        <label for="priceChange">Price to change:</label>
+        <input type="number" id="priceChange" name="priceChange" />
+        <label for="imgSrcChange">Image filepath to change:</label>
+        <input type="text" id="imgSrcChange" name="imgSrcChange" />
+        <label for="idChange">ID:</label>
         <input type="text" id="idChange" name="idChange" required />
-        <button type="submit" id="changeProduct">Change product</button>
+        <label for="productInfoChange">product info to change:</label>
+        <textarea
+          type="text"
+          id="productInfoChange"
+          name="productInfoChange"
+        ></textarea>
+        <button type="submit" id="changeProduct">Change product by ID</button>
       </form>
     </div>
 

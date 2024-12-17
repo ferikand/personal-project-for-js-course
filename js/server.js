@@ -65,6 +65,34 @@ app.delete("/delete-product/:id", (req, res) => {
   })
 })
 
+app.put("/update-product/:id", (req, res) => {
+  const productId = req.params.id
+  const updatedProduct = req.body
+
+  fs.readFile(productsFilePath, "utf8", (err, data) => {
+    let products = JSON.parse(data)
+
+    const productIndex = products.findIndex(
+      (product) => product.id === productId
+    )
+
+    if (productIndex === -1) {
+      console.error("Продукт не знайдено:", productId)
+      return res.status(404).send("Продукт не знайдено")
+    }
+
+    products[productIndex] = { ...products[productIndex], ...updatedProduct }
+
+    fs.writeFile(productsFilePath, JSON.stringify(products, null, 2), (err) => {
+      if (err) {
+        console.error("Ошибка записи в файл:", err)
+        return res.status(500).send("Помилка запису у файл")
+      }
+      res.status(200).send("Продукт успішно оновлено")
+    })
+  })
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
 })
