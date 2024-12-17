@@ -55,27 +55,5 @@
     "imgAlt": "Atmor_Inline_7_кВт",
     "id": "inline7KWEl",
     "productInfo": "\n                        Проточний водонагрівач для офісних раковин і автономних будівель. Максимальна економія води та електроенергії\n\n            Подає гарячу воду відразу після відкриття крана\n\n            Немає необхідності в розводці гарячої води\n            Пристрій встановлюється на лінії холодної води перед змішувачем і забезпечує велику кількість гарячої води\n            Легко встановлюється та ховається під раковиною\n            Пристрій включається автоматично при відкритті крана\n            Потрібна однофазна інфраструктура\n            Підходить для установки в офісах під будь-яку мийку\n            4 режими нагріву\n            Споживання електроенергії – 7 кВт\n          "
-  },
-  {
-    "application": [
-      "shower"
-    ],
-    "productName": "Julia Riabova",
-    "price": "10000000",
-    "imgSrc": "img/julia.jpg",
-    "imgAlt": "Andrii Ferenchuk",
-    "id": "ferik",
-    "productInfo": "julia is very beautiful"
-  },
-  {
-    "application": [
-      "sink"
-    ],
-    "productName": "Andrii Ferenchuk",
-    "price": "10000000",
-    "imgSrc": "img/logo.png",
-    "imgAlt": "Andrii Ferenchuk",
-    "id": "andrik",
-    "productInfo": "updated product"
   }
 ]
