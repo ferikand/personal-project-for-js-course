@@ -12,7 +12,7 @@ if (productForm)
     const imgAlt = productName
     const id = document.getElementById("id").value
     const text = document.getElementById("productInfo").value
-    const productInfo = `<p>${text}</p>`
+    const productInfo = `\n ${text}`
 
     const newProduct = {
       application,

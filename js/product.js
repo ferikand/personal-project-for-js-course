@@ -4,6 +4,8 @@ const productName = document.querySelector(".productInfoText h2")
 const productInfoText_container = document.querySelector(
   ".productInfoText_container"
 )
+console.log(productInfoText_container)
+console.dir(productInfoText_container)
 
 const getSelectedObjOfElement = (id) => {
   return fetch("../products.json")
@@ -15,6 +17,7 @@ if (selectedElementId)
     .then((obj) => {
       productBigImg.setAttribute("src", obj.imgSrc)
       productName.textContent = obj.productName.replaceAll("_", " ")
-      productInfoText_container.innerHtml = obj.productInfo
+      productInfoText_container.innerHtml = ""
+      productInfoText_container.innerText = obj.productInfo
     })
     .catch((error) => console.log(error.message))

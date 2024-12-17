@@ -4,3 +4,6 @@
     max-width: 45%;
   }
 }
+.productInfoText {
+  flex-direction: column;
+}
