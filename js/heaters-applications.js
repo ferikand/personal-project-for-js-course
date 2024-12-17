@@ -51,7 +51,7 @@ const renderProducts = (applicationsToApply) => {
         });
     })
     .catch((error) => {
-      heatersContainer.innerHTML = `<p>Ошибка при загрузке товаров: ${error.message}</p>`;
+      heatersContainer.innerHTML = `<p>Помилка при завентаженні товарів: ${error.message}</p>`;
     });
 };
 
