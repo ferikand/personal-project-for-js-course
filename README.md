@@ -9,6 +9,6 @@ to have possibility to add, delete and change products you should
 
 1. clone the repository to your computer
 2. open the project with live server
-3. open terminal and start local sever by typeing cd js enter, then node server enter
+3. open terminal and start local sever by typing: cd js, press enter, then, type: node server, press enter
 4. follow link #login on the right top of the main page
 5. on login page enter credentials: login: admin, password: admin
