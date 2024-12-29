@@ -1,9 +1,19 @@
+.productBigImgContainer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.productInfoText {
+  flex-direction: column;
+}
+
+.price_container p {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 @media (min-width: 768px) {
   .productBigImgContainer,
   .productInfo {
     max-width: 45%;
   }
-}
-.productInfoText {
-  flex-direction: column;
 }
