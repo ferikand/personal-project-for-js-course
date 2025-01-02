@@ -17,3 +17,26 @@
     max-width: 45%;
   }
 }
+
+/* adding product to cart */
+
+.qty {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qty_deduct,
+.qty_main,
+.qty_add {
+  font-weight: bolder;
+}
+
+.qty_deduct {
+  margin-right: 1rem;
+}
+
+.qty_add {
+  margin-left: 1rem;
+}
