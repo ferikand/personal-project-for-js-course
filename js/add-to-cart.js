@@ -16,9 +16,10 @@ deductQty.addEventListener("click", (e) => {
     qtyMain.textContent = parseInt(qtyMain.textContent) - 1
   quantity = qtyMain.textContent
   getSelectedObjOfElement(selectedElementId).then((obj) => {
-    price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
-      2
-    )} грн</p>`
+    if (parseInt(quantity) !== 0)
+      price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
+        2
+      )} грн</p>`
   })
 })
 addQty.addEventListener("click", (e) => {
@@ -27,9 +28,9 @@ addQty.addEventListener("click", (e) => {
     qtyMain.textContent = parseInt(qtyMain.textContent) + 1
   quantity = qtyMain.textContent
   getSelectedObjOfElement(selectedElementId).then((obj) => {
-    price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
-      2
-    )} грн</p>`
+    if (parseInt(quantity) !== 0)
+      price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
+        2
+      )} грн</p>`
   })
 })
-console.log(quantity)
