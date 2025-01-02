@@ -27,8 +27,10 @@ if (selectedElementId)
     .then((obj) => {
       productBigImg.setAttribute("src", obj.imgSrc)
       productName.textContent = obj.productName.replaceAll("_", " ")
-      productInfoText_container.innerHtml = ""
+      productInfoText_container.innerHTML = ""
       productInfoText_container.innerText = obj.productInfo
-      price_container.innerHTML = `<p>Ціна ${obj.price} грн</p>`
+      price_container.innerHTML = `<p>Ціна ${obj.price.toFixed(2)} грн</p>`
     })
     .catch((error) => console.log(error.message))
+
+export { getSelectedObjOfElement, selectedElementId, price_container }
