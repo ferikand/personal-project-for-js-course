@@ -11,6 +11,6 @@ deductQty.addEventListener("click", (e) => {
 })
 addQty.addEventListener("click", (e) => {
   e.preventDefault()
-  if (parseInt(qtyMain.textContent) >= 0)
+  if (parseInt(qtyMain.textContent) >= 0 && parseInt(qtyMain.textContent) <= 10)
     qtyMain.textContent = parseInt(qtyMain.textContent) + 1
 })
