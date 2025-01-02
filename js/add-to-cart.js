@@ -16,7 +16,7 @@ deductQty.addEventListener("click", (e) => {
     qtyMain.textContent = parseInt(qtyMain.textContent) - 1
   quantity = qtyMain.textContent
   getSelectedObjOfElement(selectedElementId).then((obj) => {
-    if (parseInt(quantity) !== 0)
+    if (parseInt(quantity))
       price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
         2
       )} грн</p>`
@@ -28,7 +28,7 @@ addQty.addEventListener("click", (e) => {
     qtyMain.textContent = parseInt(qtyMain.textContent) + 1
   quantity = qtyMain.textContent
   getSelectedObjOfElement(selectedElementId).then((obj) => {
-    if (parseInt(quantity) !== 0)
+    if (parseInt(quantity))
       price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
         2
       )} грн</p>`
