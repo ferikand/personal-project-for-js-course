@@ -11,6 +11,9 @@ const wholePageModal = document.querySelector(".whole_page-modal")
 const smallModal = document.querySelector(".modal-small")
 const modalCart = document.querySelector(".modal-cart")
 const closeBtn = document.querySelector(".btn-close")
+const totalQuantityOfChoosenProducts = document.querySelector(
+  "#total-quantity-choosen"
+)
 
 // Ініціалізація кількості
 if (qtyMain) qtyMain.textContent = 0
@@ -24,8 +27,11 @@ const updatePrice = (quantity) => {
       price_container.innerHTML = `<p>Ціна ${(obj.price * quantity).toFixed(
         2
       )} грн</p>`
+      totalQuantityOfChoosenProducts.innerText = quantity
     } else {
-      price_container.innerHTML = `<p>Ціна ${obj.price} грн</p>`
+      price_container.innerHTML = `<p>Ціна ${parseInt(obj.price).toFixed(
+        2
+      )} грн</p>`
     }
   })
 }

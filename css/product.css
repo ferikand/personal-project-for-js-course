@@ -40,3 +40,13 @@
 .qty_add {
   margin-left: 1rem;
 }
+
+#total-quantity-choosen {
+  display: inline-block;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+  position: absolute;
+}
