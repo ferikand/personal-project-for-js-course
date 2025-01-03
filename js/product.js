@@ -7,7 +7,7 @@ const productInfoText_container = document.querySelector(
 const price_container = document.querySelector(".price_container")
 
 const getSelectedObjOfElement = (id) => {
-  return fetch("../products.json")
+  return fetch("../api/products.json")
     .then((response) => response.json())
     .then((data) => data.find((el) => el.id === id))
 }

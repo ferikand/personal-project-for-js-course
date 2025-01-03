@@ -11,7 +11,7 @@ app.use(cors())
 
 app.use(bodyParser.json())
 
-const productsFilePath = path.join(__dirname, "../products.json")
+const productsFilePath = path.join(__dirname, "../api/products.json")
 
 app.get("/products", (req, res) => {
   fs.readFile(productsFilePath, "utf8", (err, data) =>
