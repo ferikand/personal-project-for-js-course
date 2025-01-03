@@ -15,10 +15,13 @@ if (selectedElementId)
   getSelectedObjOfElement(selectedElementId)
     .then((obj) => {
       productBigImg.setAttribute("src", obj.imgSrc)
+      productBigImg.setAttribute("alt", obj.productName)
       productName.textContent = obj.productName.replaceAll("_", " ")
       productInfoText_container.innerHTML = ""
       productInfoText_container.innerText = obj.productInfo
-      price_container.innerHTML = `<p>Ціна ${obj.price.toFixed(2)} грн</p>`
+      price_container.innerHTML = `<p>Ціна ${parseInt(obj.price).toFixed(
+        2
+      )} грн</p>`
     })
     .catch((error) => console.log(error.message))
 
