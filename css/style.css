@@ -6,6 +6,7 @@
 @import url("heaters-applications.css");
 @import url("product.css");
 @import url("add-product.css");
+@import url("cart.css");
 
 * {
   box-sizing: border-box;

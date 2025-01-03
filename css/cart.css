@@ -1,0 +1,15 @@
+.whole_page-modal {
+  position: fixed;
+  top: 50vh;
+  left: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: aliceblue;
+  translate: -50% -50%;
+}
+
+.modal-small {
+  border-radius: 50%;
+  font-size: 24px;
+}
