@@ -20,6 +20,10 @@
   flex-direction: row;
 }
 .cart-product-img {
-  max-width: 30%;
   object-fit: contain;
+  max-height: 95%;
+}
+
+.cart-product-img-container {
+  max-width: 30%;
 }
