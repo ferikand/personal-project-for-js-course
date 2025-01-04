@@ -32,18 +32,34 @@ const initializeQuantity = () => {
   }
 }
 
+const initializeVisibility = () => {
+  const totalQuantity = Object.values(cart).reduce((sum, qty) => sum + qty, 0)
+
+  if (totalQuantity === 0) {
+    domElements.smallModal.classList.add("hidden") // Ховаємо маленьку корзину
+    domElements.wholePageModal.classList.add("hidden") // Ховаємо фонову модалку
+  }
+}
+
 // Оновлення загальної кількості товарів
 const updateTotalQuantity = () => {
   const totalQuantity = Object.values(cart).reduce((sum, qty) => sum + qty, 0)
+
   if (domElements.totalQuantityOfChoosenProducts) {
     domElements.totalQuantityOfChoosenProducts.innerText = totalQuantity
+  }
+
+  // Якщо корзина порожня, приховуємо маленьку корзину
+  if (totalQuantity === 0) {
+    domElements.smallModal.classList.add("hidden")
+    domElements.wholePageModal.classList.add("hidden")
   }
 }
 
 // Оновлення локального збереження корзини
 const updateCartInStorage = () => {
   if (quantity === 0) {
-    delete cart[selectedElementId] // Видалення товару, якщо кількість 0
+    delete cart[selectedElementId] // Видалення товару
   } else {
     cart[selectedElementId] = quantity
   }
@@ -73,6 +89,7 @@ const handleDeductQty = (e) => {
   updateTotalQuantity()
   updateQuantityUI()
 
+  // Якщо кількість товару дорівнює 0, ховаємо всі модалки
   if (quantity <= 0) hideModals()
 }
 
@@ -128,6 +145,7 @@ const initializeEventListeners = () => {
 // Ініціалізація програми
 const initializeApp = () => {
   initializeQuantity()
+  initializeVisibility() // Додаємо перевірку видимості при завантаженні сторінки
   initializeEventListeners()
 }
 
