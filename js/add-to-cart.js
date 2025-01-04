@@ -3,6 +3,7 @@ import {
   selectedElementId,
   price_container,
 } from "./product.js"
+import { showAlert } from "./alert.js"
 
 // DOM-елементи
 const domElements = {
@@ -83,14 +84,14 @@ const updateQuantityUI = () => {
 // Зменшення кількості товару
 const handleDeductQty = (e) => {
   e.preventDefault()
-  if (quantity > 0) quantity -= 1
+  if (quantity > 0) {
+    quantity -= 1
+    showAlert("Товар видалено з кошика", false)
+  }
 
   updateCartInStorage()
   updateTotalQuantity()
   updateQuantityUI()
-
-  // Якщо кількість товару дорівнює 0, ховаємо всі модалки
-  // if (quantity <= 0) hideModals()
 }
 
 // Збільшення кількості товару
@@ -102,6 +103,8 @@ const handleAddQty = (e) => {
     updateCartInStorage()
     updateTotalQuantity()
     updateQuantityUI()
+
+    showAlert("Товар додано до кошика", true)
 
     if (
       quantity > 0 &&
