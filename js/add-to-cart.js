@@ -4,7 +4,7 @@ import {
   price_container,
 } from "./product.js"
 import { showAlert } from "./alert.js"
-
+import { productList } from "./cart.js"
 // DOM-елементи
 const domElements = {
   deductQty: document.querySelector(".qty_deduct"),
@@ -85,6 +85,7 @@ const handleDeductQty = (e) => {
   updateCartInStorage()
   updateTotalQuantity()
   updateQuantityUI()
+  productList(cart)
 }
 
 // Збільшення кількості товару
@@ -96,6 +97,7 @@ const handleAddQty = (e) => {
     updateCartInStorage()
     updateTotalQuantity()
     updateQuantityUI()
+    productList(cart)
 
     showAlert("Товар додано до кошика", true)
 
@@ -116,9 +118,9 @@ const handleSmallModalClick = (e) => {
   e.preventDefault()
   domElements.smallModal.classList.add("hidden")
   domElements.wholePageModal.style.top = "50vh"
-
   domElements.wholePageModal.style.left = "50vw"
   domElements.modalCart.classList.remove("hidden")
+  productList(cart)
 }
 
 // Закриття кошика
@@ -150,3 +152,4 @@ const initializeApp = () => {
 }
 
 initializeApp()
+export { cart }

@@ -13,3 +13,11 @@
   font-size: 48px;
   background-color: white;
 }
+
+.cart-product {
+  display: flex;
+  flex-direction: row;
+}
+.cart-product-img {
+  max-width: 15%;
+}
