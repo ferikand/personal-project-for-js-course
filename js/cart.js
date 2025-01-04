@@ -1,32 +1,38 @@
 const cartProductListContainer = document.querySelector(
   ".cart-product-list-container"
 )
+
 import { cart } from "./add-to-cart.js"
 import { getSelectedObjOfElement } from "./product.js"
 const productList = function (cart) {
   cartProductListContainer.innerHTML = ""
   Object.keys(cart).forEach((id) => {
     getSelectedObjOfElement(id).then((obj) => {
-      console.log(id)
-
       cartProductListContainer.innerHTML += `
     <div class="cart-product">
-      <img src="${obj.imgSrc}" alt="${
+        <div.img-container>
+            <img src="${obj.imgSrc}" alt="${
         obj.productName
       }" class="cart-product-img img img-fluid">
-      <div class="cart-product-info">
-        <h3 class="cart-product-name">${obj.productName.replaceAll(
-          "_",
-          " "
-        )}</h3>
-        <p class="cart-product-quantity">Кількість: ${cart[id]}</p>
-        <p class="cart-product-price">Ціна: ${parseInt(obj.price).toFixed(
-          2
-        )} грн</p>
-      </div>
+        </div.img-container>
+        <div class="cart-product-info container container-fluid">
+            <div class="cart-product-info-name container container fluid>
+                <h6 class="cart-product-name">${obj.productName.replaceAll(
+                  "_",
+                  " "
+                )}</h6>
+            </div>
+            <div class="cart-product-info-quantity container container-fluid">  
+                <p class="cart-product-quantity">Кількість: ${cart[id]}</p>
+            </div>
+            <div class="cart-product-info-price container container-fluid">  
+                <p class="cart-product-price">Ціна: ${parseInt(
+                  obj.price
+                ).toFixed(2)} грн</p>
+            </div>  
+        </div>
     </div>
     `
-      console.log(obj)
     })
   })
 }
