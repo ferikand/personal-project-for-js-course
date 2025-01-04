@@ -107,7 +107,7 @@ const handleAddQty = (e) => {
     ) {
       domElements.wholePageModal.classList.remove("hidden")
       domElements.wholePageModal.style.top = "70vh"
-      domElements.wholePageModal.style.left = "90vw"
+      domElements.wholePageModal.style.left = "125vw"
       domElements.smallModal.classList.remove("hidden")
     }
   }
@@ -129,7 +129,7 @@ const handleCloseCart = (e) => {
   domElements.modalCart.classList.add("hidden")
   domElements.smallModal.classList.remove("hidden")
   domElements.wholePageModal.style.top = "70vh"
-  domElements.wholePageModal.style.left = "90vw"
+  domElements.wholePageModal.style.left = "125vw"
 }
 
 // Ініціалізація подій
