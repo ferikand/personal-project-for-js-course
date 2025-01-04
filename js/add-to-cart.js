@@ -15,27 +15,31 @@ const closeBtn = document.querySelector(".btn-close")
 const totalQuantityOfChoosenProducts = document.querySelector(
   "#total-quantity-choosen"
 )
-
 // Локальна корзина
 let cart = JSON.parse(localStorage.getItem("cart")) || {}
-let quantity = 0 // Ініціалізація кількості
+let quantity = cart[selectedElementId] ?? 0
 
 // Ініціалізація кількості в інтерфейсі
 if (qtyMain) qtyMain.textContent = quantity
 
 // Оновлення ціни та кількості в інтерфейсі
-const updatePrice = async (quantity) => {
-  const obj = await getSelectedObjOfElement(selectedElementId)
-  if (quantity > 0) {
+
+const updateTotalQuantity = (quantity) => {
+  if (quantity >= 0)
     totalQuantityOfChoosenProducts.innerText = Object.values(cart).reduce(
-      (sum, qty) => sum + qty
+      (sum, qty) => sum + qty,
+      0
     )
-    price_container.innerHTML = `<p>Ціна ${parseInt(obj.price).toFixed(
-      2
-    )} грн</p>`
-  }
+
+  console.log()
 }
 
+updateTotalQuantity(quantity)
+
+if (totalQuantityOfChoosenProducts) {
+  wholePageModal.classList.remove("hidden")
+  smallModal.classList.remove("hidden")
+}
 // Оновлення локального збереження корзини
 const updateCartInStorage = () => {
   cart[selectedElementId] = quantity
@@ -53,13 +57,15 @@ const hideModals = () => {
 // Зменшення кількості товару
 const handleDeductQty = (e) => {
   e.preventDefault()
-  if (quantity > 0) {
-    quantity -= 1
-    qtyMain.textContent = quantity
-    updatePrice(quantity)
-    updateCartInStorage()
+  if (quantity > 0) quantity -= 1
 
-    if (quantity <= 0) hideModals()
+  updateTotalQuantity(quantity)
+  updateCartInStorage()
+  qtyMain.textContent = cart[selectedElementId]
+
+  if (quantity <= 0 && qtyMain.textContent === 0) {
+    hideModals()
+    qtyMain.textContent = 0
   }
 }
 
@@ -68,9 +74,10 @@ const handleAddQty = (e) => {
   e.preventDefault()
   if (quantity >= 0 && quantity < 10) {
     quantity += 1
-    qtyMain.textContent = quantity
-    updatePrice(quantity)
+
     updateCartInStorage()
+    updateTotalQuantity(quantity)
+    qtyMain.textContent = cart[selectedElementId]
 
     if (quantity > 0 && getComputedStyle(modalCart).display !== "block") {
       wholePageModal.classList.remove("hidden")
