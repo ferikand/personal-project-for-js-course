@@ -1,11 +1,16 @@
 .alert-container {
-  position: fixed; /* Фіксоване позиціонування */
-  bottom: 20px; /* Відступ від нижнього краю */
-  left: 50%; /* Центрування по горизонталі */
-  transform: translateX(-50%); /* Вирівнювання по центру */
-  z-index: 1050; /* Відображення поверх іншого вмісту */
-  pointer-events: none; /* Не блокуємо кліки для інших елементів */
+  position: fixed !important; /* Fixed positioning ensures the alert stays in one place */
+  bottom: 20px; /* Distance from the bottom of the viewport */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Correct the centering */
+  z-index: 1050; /* Ensure it's above other elements */
+  pointer-events: none; /* Prevent interaction with elements below */
+  width: 100%; /* Ensure the container spans the full width for centering */
 }
+
 .alert {
-  pointer-events: auto; /* Дозволяємо взаємодію з кнопкою закриття */
+  pointer-events: auto; /* Allow interaction with the alert itself */
+  width: auto; /* Width should adjust to content */
+  max-width: 500px; /* Optional: Limit width for better UX on wide screens */
+  margin: 0 auto; /* Center the alert within .alert-container */
 }
