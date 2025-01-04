@@ -90,7 +90,7 @@ const handleDeductQty = (e) => {
   updateQuantityUI()
 
   // Якщо кількість товару дорівнює 0, ховаємо всі модалки
-  if (quantity <= 0) hideModals()
+  // if (quantity <= 0) hideModals()
 }
 
 // Збільшення кількості товару
