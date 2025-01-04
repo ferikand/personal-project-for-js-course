@@ -8,6 +8,7 @@ function init() {
   import("./login-form.js")
   import("./add-product.js")
   import("./add-to-cart.js")
+  import("./cart.js")
 }
 
 const totalPartials = document.querySelectorAll(
