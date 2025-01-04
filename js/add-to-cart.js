@@ -67,13 +67,6 @@ const updateCartInStorage = () => {
   localStorage.setItem("cart", JSON.stringify(cart))
 }
 
-// Приховати всі модальні вікна
-const hideModals = () => {
-  domElements.wholePageModal.classList.add("hidden")
-  domElements.smallModal.classList.add("hidden")
-  domElements.modalCart.classList.add("hidden")
-}
-
 // Оновлення кількості на інтерфейсі
 const updateQuantityUI = () => {
   if (domElements.qtyMain) {
@@ -111,6 +104,7 @@ const handleAddQty = (e) => {
       getComputedStyle(domElements.modalCart).display !== "block"
     ) {
       domElements.wholePageModal.classList.remove("hidden")
+      domElements.wholePageModal.style.top = "70vh"
       domElements.wholePageModal.style.left = "90vw"
       domElements.smallModal.classList.remove("hidden")
     }
@@ -121,6 +115,8 @@ const handleAddQty = (e) => {
 const handleSmallModalClick = (e) => {
   e.preventDefault()
   domElements.smallModal.classList.add("hidden")
+  domElements.wholePageModal.style.top = "50vh"
+
   domElements.wholePageModal.style.left = "50vw"
   domElements.modalCart.classList.remove("hidden")
 }
@@ -130,6 +126,7 @@ const handleCloseCart = (e) => {
   e.preventDefault()
   domElements.modalCart.classList.add("hidden")
   domElements.smallModal.classList.remove("hidden")
+  domElements.wholePageModal.style.top = "70vh"
   domElements.wholePageModal.style.left = "90vw"
 }
 
