@@ -122,6 +122,52 @@ const handleCloseCart = (e) => {
   domElements.smallModal.classList.remove("hidden")
 }
 
+// Зменшення кількості товару в кошику
+const handleDeductQtyInCart = (e) => {
+  e.preventDefault()
+  const id = e.target.dataset.id
+  if (cart[id] > 0) {
+    cart[id] -= 1
+    quantity -= 1
+    updateCartInStorage()
+    updateTotalQuantity()
+    updateQuantityUI()
+    renderProductList(cart)
+
+    showAlert("Товар видалено з кошика", false)
+  }
+}
+
+// Видалення товару з кошика
+const handleRemoveQtyInCart = (e) => {
+  e.preventDefault()
+  const id = e.target.dataset.id
+  quantity -= cart[id]
+  cart[id] = 0
+  updateCartInStorage()
+  updateTotalQuantity()
+  updateQuantityUI()
+  renderProductList(cart)
+
+  showAlert("Товар видалено з кошика", false)
+}
+
+// Збільшення кількості товару в кошику
+const handleAddQtyInCart = (e) => {
+  e.preventDefault()
+  const id = e.target.dataset.id
+  if (cart[id] >= 0 && cart[id] < 10) {
+    cart[id] += 1
+    quantity += 1
+    updateCartInStorage()
+    updateTotalQuantity()
+    updateQuantityUI()
+    renderProductList(cart)
+
+    showAlert("Товар додано до кошика", true)
+  }
+}
+
 // Ініціалізація подій
 const initializeEventListeners = () => {
   if (domElements.deductQty)
@@ -132,6 +178,19 @@ const initializeEventListeners = () => {
     domElements.smallModal.addEventListener("click", handleSmallModalClick)
   if (domElements.closeBtn)
     domElements.closeBtn.addEventListener("click", handleCloseCart)
+
+  // Делегування подій для кнопок в корзині
+  document
+    .querySelector(".cart-product-list-container")
+    .addEventListener("click", function (e) {
+      if (e.target.classList.contains("deduct-product_cart")) {
+        handleDeductQtyInCart(e)
+      } else if (e.target.classList.contains("remove-product_cart")) {
+        handleRemoveQtyInCart(e)
+      } else if (e.target.classList.contains("add-product_cart")) {
+        handleAddQtyInCart(e)
+      }
+    })
 }
 
 // Ініціалізація програми
