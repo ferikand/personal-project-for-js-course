@@ -2,7 +2,6 @@ const cartProductListContainer = document.querySelector(
   ".cart-product-list-container"
 )
 
-import { cart } from "./add-to-cart.js"
 import { getSelectedObjOfElement } from "./product.js"
 const renderProductList = function (cart) {
   cartProductListContainer.innerHTML = ""

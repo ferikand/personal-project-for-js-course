@@ -142,4 +142,4 @@ const initializeApp = () => {
 }
 
 initializeApp()
-export { cart }
+export { cart, handleSmallModalClick }

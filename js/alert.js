@@ -1,3 +1,4 @@
+import { handleSmallModalClick } from "./add-to-cart.js"
 export function showAlert(message, success = true) {
   const alertContainer = document.querySelector(".alert-container")
   alertContainer.innerHTML = `<div class="alert ${
@@ -9,4 +10,5 @@ export function showAlert(message, success = true) {
 
   const bsAlert = new bootstrap.Alert(alertContainer.querySelector(".alert"))
   setTimeout(() => bsAlert.close(), 2000)
+  alertContainer.addEventListener("click", handleSmallModalClick)
 }
