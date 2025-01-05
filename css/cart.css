@@ -104,39 +104,3 @@
 .order:hover {
   background-color: #0056b3;
 }
-
-@media (max-width: 576px) {
-  .modal-cart {
-    width: 95%;
-    padding: 15px;
-  }
-
-  .cart-product {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cart-product-img-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .cart-product-img {
-    width: auto;
-    max-height: 150px;
-  }
-
-  .cart-product-info {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .cart-product-info-name h6 {
-    font-size: 14px;
-  }
-
-  .cart-product-info-quantity p,
-  .cart-product-info-price p {
-    font-size: 14px;
-  }
-}
