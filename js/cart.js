@@ -4,7 +4,7 @@ const cartProductListContainer = document.querySelector(
 
 import { cart } from "./add-to-cart.js"
 import { getSelectedObjOfElement } from "./product.js"
-const productList = function (cart) {
+const renderProductList = function (cart) {
   cartProductListContainer.innerHTML = ""
   Object.keys(cart).forEach((id) => {
     getSelectedObjOfElement(id).then((obj) => {
@@ -36,4 +36,4 @@ const productList = function (cart) {
     })
   })
 }
-export { productList }
+export { renderProductList }

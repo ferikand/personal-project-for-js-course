@@ -1,10 +1,6 @@
-import {
-  getSelectedObjOfElement,
-  selectedElementId,
-  price_container,
-} from "./product.js"
+import { selectedElementId } from "./product.js"
 import { showAlert } from "./alert.js"
-import { productList } from "./cart.js"
+import { renderProductList } from "./cart.js"
 // DOM-елементи
 const domElements = {
   deductQty: document.querySelector(".qty_deduct"),
@@ -85,7 +81,7 @@ const handleDeductQty = (e) => {
   updateCartInStorage()
   updateTotalQuantity()
   updateQuantityUI()
-  productList(cart)
+  renderProductList(cart)
 }
 
 // Збільшення кількості товару
@@ -97,7 +93,7 @@ const handleAddQty = (e) => {
     updateCartInStorage()
     updateTotalQuantity()
     updateQuantityUI()
-    productList(cart)
+    renderProductList(cart)
 
     showAlert("Товар додано до кошика", true)
 
@@ -106,8 +102,6 @@ const handleAddQty = (e) => {
       getComputedStyle(domElements.modalCart).display !== "block"
     ) {
       domElements.wholePageModal.classList.remove("hidden")
-      domElements.wholePageModal.style.top = "70vh"
-      domElements.wholePageModal.style.left = "125vw"
       domElements.smallModal.classList.remove("hidden")
     }
   }
@@ -117,10 +111,8 @@ const handleAddQty = (e) => {
 const handleSmallModalClick = (e) => {
   e.preventDefault()
   domElements.smallModal.classList.add("hidden")
-  domElements.wholePageModal.style.top = "50vh"
-  domElements.wholePageModal.style.left = "50vw"
   domElements.modalCart.classList.remove("hidden")
-  productList(cart)
+  renderProductList(cart)
 }
 
 // Закриття кошика
@@ -128,8 +120,6 @@ const handleCloseCart = (e) => {
   e.preventDefault()
   domElements.modalCart.classList.add("hidden")
   domElements.smallModal.classList.remove("hidden")
-  domElements.wholePageModal.style.top = "70vh"
-  domElements.wholePageModal.style.left = "125vw"
 }
 
 // Ініціалізація подій
