@@ -122,3 +122,18 @@
 .order:hover {
   background-color: #0056b3;
 }
+
+.product-quantity-modificators {
+  display: flex;
+  flex-direction: column;
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3px;
+  }
+}
+.total-container {
+  text-align: start;
+  font-weight: bold;
+}
