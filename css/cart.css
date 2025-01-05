@@ -1,11 +1,23 @@
-.whole_page-modal {
+.modal-dialog {
+  max-height: calc(100vh - 20px);
+}
+
+.modal-content {
+  width: 100%;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background-color: white;
 }
 
 .modal-cart {
   position: fixed;
   top: 50vh;
   left: 50vw;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: start;
   background-color: #fff;
@@ -32,13 +44,13 @@
 }
 
 .modal-small {
-  position: absolute;
-  top: 15px;
-  left: 70%;
+  /* position: absolute; */
+  /* top: 15px; */
+  /* left: 70%; */
   /* display: none; */
   /* font-size: 48px; */
   background-color: white;
-  padding: 0;
+  padding-top: 15px;
 }
 
 .cart-product {
