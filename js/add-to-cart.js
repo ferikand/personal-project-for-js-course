@@ -16,7 +16,7 @@ const domElements = {
 }
 
 // Локальна корзина
-let cart = JSON.parse(localStorage.getItem("cart")) || {}
+const cart = JSON.parse(localStorage.getItem("cart")) || {}
 let quantity = cart[selectedElementId] ?? 0
 
 // Ініціалізація кількості в інтерфейсі
@@ -30,12 +30,7 @@ const initializeQuantity = () => {
 }
 
 const initializeVisibility = () => {
-  const totalQuantity = Object.values(cart).reduce((sum, qty) => sum + qty, 0)
-
-  if (totalQuantity === 0) {
-    domElements.smallModal.classList.add("hidden") // Ховаємо маленьку корзину
-    domElements.wholePageModal.classList.add("hidden") // Ховаємо фонову модалку
-  }
+  Object.values(cart).reduce((sum, qty) => sum + qty, 0)
 }
 
 // Оновлення загальної кількості товарів
@@ -44,12 +39,6 @@ const updateTotalQuantity = () => {
 
   if (domElements.totalQuantityOfChoosenProducts) {
     domElements.totalQuantityOfChoosenProducts.innerText = totalQuantity
-  }
-
-  // Якщо корзина порожня, приховуємо маленьку корзину
-  if (totalQuantity === 0) {
-    domElements.smallModal.classList.add("hidden")
-    domElements.wholePageModal.classList.add("hidden")
   }
 }
 
@@ -73,44 +62,40 @@ const updateQuantityUI = () => {
 // Зменшення кількості товару
 const handleDeductQty = (e) => {
   e.preventDefault()
-  if (quantity > 0) {
-    quantity -= 1
-    showAlert("Товар видалено з кошика", false)
-  }
+  if (quantity > 0) quantity -= 1
 
   updateCartInStorage()
   updateTotalQuantity()
   updateQuantityUI()
   renderProductList(cart)
+
+  showAlert("Товар видалено з кошика", false)
 }
 
 // Збільшення кількості товару
 const handleAddQty = (e) => {
   e.preventDefault()
-  if (quantity >= 0 && quantity < 10) {
-    quantity += 1
+  if (quantity >= 0 && quantity < 10) quantity += 1
 
-    updateCartInStorage()
-    updateTotalQuantity()
-    updateQuantityUI()
-    renderProductList(cart)
+  updateCartInStorage()
+  updateTotalQuantity()
+  updateQuantityUI()
+  renderProductList(cart)
 
-    showAlert("Товар додано до кошика", true)
+  showAlert("Товар додано до кошика", true)
 
-    if (
-      quantity > 0 &&
-      getComputedStyle(domElements.modalCart).display !== "block"
-    ) {
-      domElements.wholePageModal.classList.remove("hidden")
-      domElements.smallModal.classList.remove("hidden")
-    }
+  if (
+    quantity > 0 &&
+    getComputedStyle(domElements.modalCart).display !== "block"
+  ) {
+    domElements.wholePageModal.classList.remove("hidden")
+    domElements.smallModal.classList.remove("hidden")
   }
 }
 
 // Перехід з маленького модального вікна до кошика
 const handleSmallModalClick = (e) => {
   e.preventDefault()
-  domElements.smallModal.classList.add("hidden")
   domElements.modalCart.classList.remove("hidden")
   renderProductList(cart)
 }
@@ -124,48 +109,50 @@ const handleCloseCart = (e) => {
 
 // Зменшення кількості товару в кошику
 const handleDeductQtyInCart = (e) => {
-  e.preventDefault()
   const id = e.target.dataset.id
-  if (cart[id] > 0) {
-    cart[id] -= 1
-    quantity -= 1
-    updateCartInStorage()
-    updateTotalQuantity()
-    updateQuantityUI()
-    renderProductList(cart)
+  if (cart[id] > 0 && cart[id] <= 10) cart[id] -= 1
+  if (cart[id] === 0) delete cart[id]
+  quantity = cart[id] ?? 0
+  localStorage.setItem("cart", JSON.stringify(cart))
+  if (id === selectedElementId)
+    document.querySelector(".qty_main").textContent = cart[id] ?? 0
 
-    showAlert("Товар видалено з кошика", false)
-  }
+  updateTotalQuantity()
+  updateQuantityUI()
+  renderProductList(cart)
 }
 
 // Видалення товару з кошика
 const handleRemoveQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
-  quantity -= cart[id]
-  cart[id] = 0
-  updateCartInStorage()
+  delete cart[id]
+  quantity = cart[id] ?? 0
+  localStorage.setItem("cart", JSON.stringify(cart))
+  if (id === selectedElementId)
+    document.querySelector(".qty_main").textContent = cart[id] ?? 0
+  if (domElements.qtyMain)
+    domElements.qtyMain.textContent = cart[id] > 0 ? cart[id] : 0
+
   updateTotalQuantity()
   updateQuantityUI()
   renderProductList(cart)
-
-  showAlert("Товар видалено з кошика", false)
 }
 
 // Збільшення кількості товару в кошику
 const handleAddQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
-  if (cart[id] >= 0 && cart[id] < 10) {
-    cart[id] += 1
-    quantity += 1
-    updateCartInStorage()
-    updateTotalQuantity()
-    updateQuantityUI()
-    renderProductList(cart)
+  if (cart[id] >= 0 && cart[id] < 10) cart[id] += 1
+  quantity = cart[id] ?? 0
+  console.log(quantity, cart[id])
+  localStorage.setItem("cart", JSON.stringify(cart))
+  if (id === selectedElementId)
+    document.querySelector(".qty_main").textContent = cart[id] ?? 0
 
-    showAlert("Товар додано до кошика", true)
-  }
+  updateTotalQuantity()
+  updateQuantityUI()
+  renderProductList(cart)
 }
 
 // Ініціалізація подій
