@@ -35,10 +35,10 @@
 }
 
 .card {
-  margin: 0, 5px;
-  align-items: center;
+  align-items: flex-start;
   margin: 2px;
   flex-direction: row;
+  padding: 0;
 }
 .card:hover {
   cursor: pointer;
@@ -77,12 +77,19 @@ a {
 .application-img_container {
   align-items: center;
   justify-content: center;
-  max-width: 50%;
+  max-width: 30%;
   padding: 0;
+
+  .appImg {
+    max-height: 10vh;
+  }
 }
 .application-info_container {
   flex-direction: column;
-  max-width: 50%;
+  max-width: 70%;
+  p {
+    margin: 0;
+  }
 }
 
 /* heaters cards */
