@@ -110,15 +110,26 @@ const handleCloseCart = (e) => {
 // Зменшення кількості товару в кошику
 const handleDeductQtyInCart = (e) => {
   const id = e.target.dataset.id
-  if (cart[id] > 0 && cart[id] <= 10) cart[id] -= 1
+  if (cart[id] > 0) cart[id] -= 1
   if (cart[id] === 0) delete cart[id]
-  quantity = cart[id] ?? 0
+  // quantity = cart[id] ?? 0
+
+  console.log(quantity, cart[id])
+
   localStorage.setItem("cart", JSON.stringify(cart))
-  if (id === selectedElementId)
+
+  if (id === selectedElementId && document.querySelector(".qty_main"))
     document.querySelector(".qty_main").textContent = cart[id] ?? 0
 
-  updateTotalQuantity()
-  updateQuantityUI()
+  if (id === selectedElementId && domElements.qtyMain)
+    domElements.qtyMain.textContent = cart[id] > 0 ? cart[id] : 0
+
+  if (document.querySelector("#total-quantity-choosen"))
+    document.querySelector("#total-quantity-choosen").textContent =
+      Object.values(cart).reduce((sum, qty) => sum + qty, 0)
+
+  // updateTotalQuantity()
+  // updateQuantityUI()
   renderProductList(cart)
 }
 
@@ -127,15 +138,24 @@ const handleRemoveQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
   delete cart[id]
-  quantity = cart[id] ?? 0
+  // quantity = cart[id] ?? 0
+
+  console.log(quantity, cart[id])
+
   localStorage.setItem("cart", JSON.stringify(cart))
-  if (id === selectedElementId)
+
+  if (id === selectedElementId && document.querySelector(".qty_main"))
     document.querySelector(".qty_main").textContent = cart[id] ?? 0
-  if (domElements.qtyMain)
+
+  if (id === selectedElementId && domElements.qtyMain)
     domElements.qtyMain.textContent = cart[id] > 0 ? cart[id] : 0
 
-  updateTotalQuantity()
-  updateQuantityUI()
+  if (document.querySelector("#total-quantity-choosen"))
+    document.querySelector("#total-quantity-choosen").textContent =
+      Object.values(cart).reduce((sum, qty) => sum + qty, 0)
+
+  // updateTotalQuantity()
+  // updateQuantityUI()
   renderProductList(cart)
 }
 
@@ -144,14 +164,24 @@ const handleAddQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
   if (cart[id] >= 0 && cart[id] < 10) cart[id] += 1
-  quantity = cart[id] ?? 0
+  // quantity = cart[id] ?? 0
+
   console.log(quantity, cart[id])
+
   localStorage.setItem("cart", JSON.stringify(cart))
-  if (id === selectedElementId)
+
+  if (id === selectedElementId && document.querySelector(".qty_main"))
     document.querySelector(".qty_main").textContent = cart[id] ?? 0
 
-  updateTotalQuantity()
-  updateQuantityUI()
+  if (id === selectedElementId && domElements.qtyMain)
+    domElements.qtyMain.textContent = cart[id] > 0 ? cart[id] : 0
+
+  if (document.querySelector("#total-quantity-choosen"))
+    document.querySelector("#total-quantity-choosen").textContent =
+      Object.values(cart).reduce((sum, qty) => sum + qty, 0)
+
+  // updateTotalQuantity()
+  // updateQuantityUI()
   renderProductList(cart)
 }
 
@@ -188,4 +218,4 @@ const initializeApp = () => {
 }
 
 initializeApp()
-export { cart, handleSmallModalClick }
+export { cart, handleSmallModalClick, updateTotalQuantity }

@@ -7,9 +7,17 @@ const cartProductListContainer = document.querySelector(
 const renderProductList = function (cart) {
   cartProductListContainer.innerHTML = ""
   let total = 0
+
+  // Якщо корзина порожня, обнулюємо total і оновлюємо інтерфейс
+  if (Object.keys(cart).length === 0) {
+    document.querySelector(".total-container").innerHTML = `
+      <p class="total">Загальна сума: 0.00 грн</p>
+    `
+    return // Припиняємо виконання функції
+  }
+
   Object.keys(cart).forEach((id) => {
     getSelectedObjOfElement(id).then((obj) => {
-      total += parseInt(obj.price).toFixed(2) * cart[id]
       cartProductListContainer.innerHTML += `
     <div class="cart-product">
         <div class="cart-product-img-container container container-fluid">
@@ -42,10 +50,13 @@ const renderProductList = function (cart) {
         </div>
     </div>
     `
+      total += parseInt(obj.price).toFixed(2) * (cart[id] || 0)
+      console.log("totalPrice: ", total, obj.price, cart[id])
       document.querySelector(".total-container").innerHTML = `
-    <p class="total">Загальна сума: ${total.toFixed(2)} грн</p>
-    `
+      <p class="total">Загальна сума: ${total.toFixed(2)} грн</p>
+      `
     })
   })
 }
+
 export { renderProductList }
