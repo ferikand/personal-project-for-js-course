@@ -9,6 +9,6 @@ export function showAlert(message, success = true) {
      </div>`
 
   const bsAlert = new bootstrap.Alert(alertContainer.querySelector(".alert"))
-  setTimeout(() => bsAlert.close(), 2000)
+  setTimeout(() => bsAlert.close(), 3000)
   alertContainer.addEventListener("click", handleSmallModalClick)
 }
