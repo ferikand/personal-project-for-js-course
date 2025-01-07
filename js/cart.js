@@ -51,7 +51,7 @@ const renderProductList = function (cart) {
     </div>
     `
       total += parseInt(obj.price).toFixed(2) * (cart[id] || 0)
-      console.log("totalPrice: ", total, obj.price, cart[id])
+
       document.querySelector(".total-container").innerHTML = `
       <p class="total">Загальна сума: ${total.toFixed(2)} грн</p>
       `
