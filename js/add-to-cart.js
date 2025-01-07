@@ -112,6 +112,7 @@ const handleDeductQtyInCart = (e) => {
   const id = e.target.dataset.id
   if (cart[id] > 0) cart[id] -= 1
   if (cart[id] === 0) delete cart[id]
+  quantity = cart[id] ?? 0
 
   localStorage.setItem("cart", JSON.stringify(cart))
 
@@ -133,6 +134,7 @@ const handleRemoveQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
   delete cart[id]
+  quantity = cart[id] ?? 0
 
   localStorage.setItem("cart", JSON.stringify(cart))
 
@@ -154,6 +156,7 @@ const handleAddQtyInCart = (e) => {
   e.preventDefault()
   const id = e.target.dataset.id
   if (cart[id] >= 0 && cart[id] < 10) cart[id] += 1
+  quantity = cart[id] ?? 0
 
   localStorage.setItem("cart", JSON.stringify(cart))
 
