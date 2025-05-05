@@ -85,7 +85,7 @@ app.put("/update-product/:id", (req, res) => {
 
     fs.writeFile(productsFilePath, JSON.stringify(products, null, 2), (err) => {
       if (err) {
-        console.error("Ошибка записи в файл:", err)
+        // console.error("Помилка запису у файл":", err)
         return res.status(500).send("Помилка запису у файл")
       }
       res.status(200).send("Продукт успішно оновлено")
