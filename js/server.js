@@ -1,96 +1,91 @@
+require("dotenv").config()
 const express = require("express")
-const fs = require("fs")
 const bodyParser = require("body-parser")
-const path = require("path")
 const cors = require("cors")
+const { createClient } = require("@supabase/supabase-js")
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(cors())
-
 app.use(bodyParser.json())
 
-const productsFilePath = path.join(__dirname, "../api/products.json")
+const SUPABASE_URL = process.env.SUPABASE_URL
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error("Please set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env")
+  process.exit(1)
+}
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
-app.get("/products", (req, res) => {
-  fs.readFile(productsFilePath, "utf8", (err, data) =>
-    res.json(JSON.parse(data))
-  )
+// Get all products
+app.get("/products", async (req, res) => {
+  try {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .order("created_at", { ascending: false })
+    if (error) throw error
+    res.json(data)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: err.message || "Server error" })
+  }
 })
 
-app.post("/add-product", (req, res) => {
-  const newProduct = req.body
-
-  fs.readFile(productsFilePath, "utf8", (err, data) => {
-    const products = JSON.parse(data)
-
-    products.push(newProduct)
-
-    fs.writeFile(productsFilePath, JSON.stringify(products, null, 2), (err) =>
-      res.status(201).send("Product added successfully")
-    )
-  })
+// Add product
+app.post("/add-product", async (req, res) => {
+  try {
+    const newProduct = req.body
+    const { data, error } = await supabase
+      .from("products")
+      .insert([newProduct])
+      .select()
+    if (error) throw error
+    res.status(201).json({ message: "Product added successfully", data })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: err.message || "Server error" })
+  }
 })
 
-app.delete("/delete-product/:id", (req, res) => {
-  const productId = req.params.id
-
-  fs.readFile(productsFilePath, "utf8", (err, data) => {
-    let products = JSON.parse(data)
-
-    if (!products.some((product) => product.id === productId)) {
-      console.error("Продукт не знайдено:", productId)
-      return res.status(404).send("Product not found")
-    }
-
-    const updatedProducts = products.filter(
-      (product) => product.id !== productId
-    )
-
-    if (products.length === updatedProducts.length) {
-      return res.status(404).send("Product not found")
-    }
-
-    fs.writeFile(
-      productsFilePath,
-      JSON.stringify(updatedProducts, null, 2),
-      (err) => {
-        if (err) {
-          return res.status(500).send("Error writing to products file")
-        }
-        res.status(200).send("Product deleted successfully")
-      }
-    )
-  })
+// Delete product by id (UUID)
+app.delete("/delete-product/:id", async (req, res) => {
+  try {
+    const productId = req.params.id
+    const { data, error } = await supabase
+      .from("products")
+      .delete()
+      .eq("id", productId)
+      .select()
+    if (error) throw error
+    if (!data || data.length === 0)
+      return res.status(404).json({ message: "Product not found" })
+    res.json({ message: "Product deleted successfully", data })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: err.message || "Server error" })
+  }
 })
 
-app.put("/update-product/:id", (req, res) => {
-  const productId = req.params.id
-  const updatedProduct = req.body
-
-  fs.readFile(productsFilePath, "utf8", (err, data) => {
-    let products = JSON.parse(data)
-
-    const productIndex = products.findIndex(
-      (product) => product.id === productId
-    )
-
-    if (productIndex === -1) {
-      console.error("Продукт не знайдено:", productId)
-      return res.status(404).send("Продукт не знайдено")
-    }
-
-    products[productIndex] = { ...products[productIndex], ...updatedProduct }
-
-    fs.writeFile(productsFilePath, JSON.stringify(products, null, 2), (err) => {
-      if (err) {
-        // console.error("Помилка запису у файл":", err)
-        return res.status(500).send("Помилка запису у файл")
-      }
-      res.status(200).send("Продукт успішно оновлено")
-    })
-  })
+// Update product by id
+app.put("/update-product/:id", async (req, res) => {
+  try {
+    const productId = req.params.id
+    const updatedProduct = req.body
+    const { data, error } = await supabase
+      .from("products")
+      .update(updatedProduct)
+      .eq("id", productId)
+      .select()
+    if (error) throw error
+    if (!data || data.length === 0)
+      return res.status(404).json({ message: "Product not found" })
+    res.json({ message: "Product updated successfully", data })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: err.message || "Server error" })
+  }
 })
 
 app.listen(PORT, () => {
