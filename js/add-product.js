@@ -5,7 +5,11 @@ if (productForm)
   productForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    const application = [].concat(document.getElementById("applications").value)
+    const applicationInput = document.getElementById("applications").value
+    const application = applicationInput
+      .split(",")
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0)
     const productName = document.getElementById("productName").value
     const price = document.getElementById("price").value
     const imgSrc = document.getElementById("imgSrc").value
@@ -79,7 +83,11 @@ if (productChangeForm)
     console.log(idChange)
 
     const updatedProduct = {}
-    if (applicationsChange) updatedProduct.application = applicationsChange
+    if (applicationsChange)
+      updatedProduct.application = applicationsChange
+        .split(",")
+        .map((s) => s.trim())
+        .filter((s) => s.length > 0)
     if (productNameChange) updatedProduct.productName = productNameChange
     if (priceChange) updatedProduct.price = priceChange
     if (imgSrcChange) updatedProduct.imgSrc = imgSrcChange

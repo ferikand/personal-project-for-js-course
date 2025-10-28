@@ -27,7 +27,7 @@ if (grayBcg)
   })
 
 const renderProducts = (applicationsToApply) => {
-  fetch("../api/products.json")
+  fetch("http://localhost:3000/products")
     .then((response) => response.json())
     .then((arr) => {
       heatersContainer.innerHTML = ""

@@ -73,6 +73,12 @@ app.put("/update-product/:id", async (req, res) => {
   try {
     const productId = req.params.id
     const updatedProduct = req.body
+    if (
+      updatedProduct.application &&
+      Array.isArray(updatedProduct.application)
+    ) {
+      updatedProduct.application = `{${updatedProduct.application.join(",")}}`
+    }
     const { data, error } = await supabase
       .from("products")
       .update(updatedProduct)
