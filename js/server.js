@@ -21,10 +21,8 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 // Get all products
 app.get("/products", async (req, res) => {
   try {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .order("created_at", { ascending: false })
+    const { data, error } = await supabase.from("products").select("*")
+    // .order("created_at", { ascending: false })
     if (error) throw error
     res.json(data)
   } catch (err) {
