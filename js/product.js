@@ -1,4 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
+const API_BASE =
+  typeof import.meta !== "undefined"
+    ? import.meta.env.VITE_API_URL || "http://localhost:3000"
+    : "http://localhost:3000"
 
 const selectedElementId = localStorage.getItem("selectedElement")
 const productBigImg = document.querySelector(".productBigImg")

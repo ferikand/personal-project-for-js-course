@@ -1,7 +1,17 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
+const API_BASE =
+  typeof import.meta !== "undefined" && import.meta.env?.VITE_API_URL
+    ? import.meta.env.VITE_API_URL
+    : "http://localhost:3000"
+
+console.log("VITE DEBUG:", {
+  importMeta: import.meta,
+  env: import.meta?.env,
+  VITE_API_URL: import.meta?.env?.VITE_API_URL,
+})
 
 const heatersContainer = document.querySelector(".heatersContainer")
-let applicationsToApply = localStorage.getItem("selectedSolution")
+let applicationsToApply = localStorage.getItem("selectedSolution") || "business"
+
 const grayBcg = document.querySelector(".grayBcg")
 if (grayBcg)
   grayBcg.addEventListener("click", (e) => {
