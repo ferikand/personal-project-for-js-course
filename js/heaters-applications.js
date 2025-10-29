@@ -1,3 +1,5 @@
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
+
 const heatersContainer = document.querySelector(".heatersContainer")
 let applicationsToApply = localStorage.getItem("selectedSolution")
 const grayBcg = document.querySelector(".grayBcg")
@@ -27,7 +29,7 @@ if (grayBcg)
   })
 
 const renderProducts = (applicationsToApply) => {
-  fetch("http://localhost:3000/products")
+  fetch(`${API_BASE}/products`)
     .then((response) => response.json())
     .then((arr) => {
       heatersContainer.innerHTML = ""

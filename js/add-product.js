@@ -1,5 +1,6 @@
-// add product
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
 
+// add product
 export const setupProductForms = (client) => {
   const productForm = document.getElementById("productForm")
 
@@ -40,7 +41,7 @@ export const setupProductForms = (client) => {
         productInfo,
       }
 
-      fetch("http://localhost:3000/add-product", {
+      fetch(`${API_BASE}/add-product`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +82,7 @@ export const setupProductForms = (client) => {
 
       const idDelete = document.getElementById("idDelete").value
 
-      fetch(`http://localhost:3000/delete-product/${idDelete}`, {
+      fetch(`${API_BASE}/delete-product/${idDelete}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +133,7 @@ export const setupProductForms = (client) => {
       if (imgSrcChange) updatedProduct.imgSrc = imgSrcChange
       if (productInfoChange) updatedProduct.productInfo = productInfoChange
 
-      fetch(`http://localhost:3000/update-product/${idChange}`, {
+      fetch(`${API_BASE}/update-product/${idChange}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

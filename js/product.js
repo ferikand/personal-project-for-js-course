@@ -1,3 +1,5 @@
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
+
 const selectedElementId = localStorage.getItem("selectedElement")
 const productBigImg = document.querySelector(".productBigImg")
 const productName = document.querySelector(".productInfoText h2")
@@ -7,7 +9,7 @@ const productInfoText_container = document.querySelector(
 const price_container = document.querySelector(".price_container")
 
 const getSelectedObjOfElement = (id) => {
-  return fetch("http://localhost:3000/products")
+  return fetch(`${API_BASE}/products`)
     .then((response) => response.json())
     .then((data) => data.find((el) => el.id === id))
 }
