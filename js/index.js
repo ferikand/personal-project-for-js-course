@@ -16,7 +16,7 @@ async function init() {
   const type = params.get("type")
 
   if (type === "invite" && accessToken) {
-    console.log("👋 Запрошення активовано, токен:", accessToken)
+    // console.log("👋 Запрошення активовано, токен:", accessToken)
     localStorage.setItem("supabaseAccessToken", accessToken)
     window.location.href = "/add-product.html"
   }

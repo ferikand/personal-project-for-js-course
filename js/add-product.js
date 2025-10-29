@@ -40,7 +40,7 @@ export const setupProductForms = (client) => {
         productInfo,
       }
 
-      fetch("/add-product", {
+      fetch("http://localhost:3000/add-product", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ export const setupProductForms = (client) => {
 
       const idDelete = document.getElementById("idDelete").value
 
-      fetch(`/delete-product/${idDelete}`, {
+      fetch(`http://localhost:3000/delete-product/${idDelete}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -132,7 +132,7 @@ export const setupProductForms = (client) => {
       if (imgSrcChange) updatedProduct.imgSrc = imgSrcChange
       if (productInfoChange) updatedProduct.productInfo = productInfoChange
 
-      fetch(`/update-product/${idChange}`, {
+      fetch(`http://localhost:3000/update-product/${idChange}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -142,7 +142,7 @@ export const setupProductForms = (client) => {
       }).then((response) => {
         if (response.ok) {
           alert("Продукт успішно оновлено")
-          document.getElementById("updateForm").reset()
+          document.getElementById("productChangeForm").reset()
         } else if (response.status === 404) {
           alert("Продукт не знайдено!")
         }
