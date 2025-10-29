@@ -185,9 +185,11 @@ const initializeEventListeners = () => {
     domElements.closeBtn.addEventListener("click", handleCloseCart)
 
   // Делегування подій для кнопок в корзині
-  document
-    .querySelector(".cart-product-list-container")
-    .addEventListener("click", function (e) {
+  const cartProductListContainer = document.querySelector(
+    ".cart-product-list-container"
+  )
+  if (cartProductListContainer)
+    cartProductListContainer.addEventListener("click", function (e) {
       if (e.target.classList.contains("deduct-product_cart")) {
         handleDeductQtyInCart(e)
       } else if (e.target.classList.contains("remove-product_cart")) {
