@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:3000"
+const API_BASE = "https://personal-project-for-js-course.onrender.com"
 
 // add product
 export const setupProductForms = (client) => {
