@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fb0f7ae5-b7ca-4aa7-ad8d-cc232cbf20d4" name="ftp://atmor_ftp@atmor.ftp.tools:21/" url="http://atmor.ftp.tools">
+        <fileTransfer rootFolder="/home/atmor/atmor.com.ua/www/" host="atmor.ftp.tools" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
