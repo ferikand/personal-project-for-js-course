@@ -39,8 +39,8 @@ async function init() {
 
   loginFormModule?.initLoginForm?.(supabaseClient)
 
-  const addProductModule = await import("./add-product.js")
-  addProductModule.setupProductForms(supabaseClient)
+  // const addProductModule = await import("./add-product.js")
+  // addProductModule.setupProductForms(supabaseClient)
 
   return { supabaseClient }
 }
