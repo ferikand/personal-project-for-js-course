@@ -42,7 +42,14 @@ async function init() {
   // const addProductModule = await import("./add-product.js")
   // addProductModule.setupProductForms(supabaseClient)
 
-  return { supabaseClient }
+  return {
+    supabaseClient,
+    homeSolutions,
+    heatersApplications,
+    product,
+    addToCart,
+    cart,
+  }
 }
 
 const totalPartials = document.querySelectorAll(
