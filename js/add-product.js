@@ -1,7 +1,14 @@
 const API_BASE = "https://personal-project-for-js-course.onrender.com"
 
-// add product
-export const setupProductForms = (client) => {
+export const setupProductForms = async (client) => {
+  // add product
+
+  const {
+    data: { user },
+    error: userError,
+  } = await client.auth.getUser()
+  console.log(user.id, userError)
+
   const productForm = document.getElementById("productForm")
 
   if (productForm)
@@ -25,7 +32,7 @@ export const setupProductForms = (client) => {
         .filter((s) => s.length > 0)
       const productName = document.getElementById("productName").value
       const price = document.getElementById("price").value
-      const imgSrc = document.getElementById("imgSrc").value
+      const imgSrc = "img/" + document.getElementById("imgSrc").value
       const imgAlt = productName
       const id = document.getElementById("id").value
       const text = document.getElementById("productInfo").value
@@ -39,6 +46,7 @@ export const setupProductForms = (client) => {
         imgAlt,
         id,
         productInfo,
+        created_by: user.id,
       }
 
       fetch(`${API_BASE}/add-product`, {
