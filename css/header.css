@@ -141,3 +141,58 @@ nav ul li.active {
   display: flex;
   flex-direction: row;
 }
+
+/* off-canvas inside list  */
+
+.offcanvas-body {
+  padding: 0;
+}
+.offcanvas-body .inside-list_container {
+  width: 80%;
+  margin: auto;
+}
+.offcanvas-body .inside-list_container ul {
+  flex-direction: column;
+  outline: orangered;
+  list-style-type: none;
+}
+.offcanvas-body .inside-list_container ul li.inside-list_element {
+  width: 100%;
+  border-bottom: 1px #b40e0e solid;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  text-align: center;
+}
+.offcanvas-body .inside-list_container ul li:last-child {
+  border-bottom: none;
+}
+.offcanvas-body .inside-list_container ul li a {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+}
+.inside-list_element__link {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.inside-list_element__link:hover,
+.inside-list_element__link:focus,
+.inside-list_element__link:active {
+  color: #b40e0e;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1.1em;
+}
+@media (min-width: 498px) {
+  .header {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  .navbar-brand {
+    display: none;
+  }
+}

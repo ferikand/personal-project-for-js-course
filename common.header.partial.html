@@ -23,7 +23,10 @@
         <span class="cart-icon">кошик🛒</span>
         <p id="total-quantity-choosen"></p>
       </div>
-      <a class="loginLink" href="login-page.html">
+      <a
+        class="loginLink"
+        href="login-page.html"
+      >
         <div>
           <p>Login</p>
         </div>
@@ -32,9 +35,111 @@
     <!-- navigation -->
 
     <div class="container">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <!-- example -->
+      <div
+        class="navbar off-canvas_container container d-block d-md-none d-lg-none"
+      >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+          aria-label="Toggle navigation"
+        >
+          <a
+            class="navbar-brand"
+            href="#offcanvasExample"
+            >Навігація по сайту</a
+          >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasExample"
+          aria-labelledby="offcanvasExampleLabel"
+        >
+          <div class="offcanvas-header">
+            <h5
+              class="offcanvas-title"
+              id="offcanvasExampleLabel"
+            >
+              Atmor
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="offcanvas-body"
+            id="navbarSupportedContent"
+          >
+            <div class="inside-list_container">
+              <ul class="inside-list list-unstyled">
+                <li
+                  id="home-btn"
+                  class="home-btn active inside-list_element"
+                >
+                  <a
+                    class="inside-list_element__link"
+                    aria-current="page"
+                    href="index.html"
+                    ><i
+                      class="fa fa-home"
+                      aria-hidden="true"
+                    ></i
+                    ><span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li class="inside-list_element">
+                  <a
+                    class="inside-list_element__link"
+                    href="why-atmor.html"
+                    >чому atmor</a
+                  >
+                </li>
+                <li class="inside-list_element">
+                  <a
+                    class="inside-list_element__link"
+                    href="heaters-applications.html"
+                    >застосування</a
+                  >
+                </li>
+                <li class="inside-list_element">
+                  <a
+                    class="inside-list_element__link"
+                    href="#"
+                    >інструкції</a
+                  >
+                </li>
+                <li class="inside-list_element">
+                  <a
+                    class="inside-list_element__link"
+                    href="#"
+                    >сервіс</a
+                  >
+                </li>
+                <li class="inside-list_element">
+                  <a
+                    class="inside-list_element__link"
+                    href="#"
+                    >контакти</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
-          <button
+          <!-- <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -43,33 +148,67 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <a class="navbar-brand" href="#">Навігація по сайту</a>
+            <a
+              class="navbar-brand"
+              href="#"
+              >Навігація по сайту</a
+            >
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          </button> -->
+          <div
+            class="collapse navbar-collapse"
+            id="navbarSupportedContent"
+          >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li id="home-btn" class="nav-item home-btn active">
-                <a class="nav-link" aria-current="page" href="index.html"
-                  ><i class="fa fa-home" aria-hidden="true"></i
+              <li
+                id="home-btn"
+                class="nav-item home-btn active"
+              >
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="index.html"
+                  ><i
+                    class="fa fa-home"
+                    aria-hidden="true"
+                  ></i
                   ><span class="sr-only">(current)</span></a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="why-atmor.html">чому atmor</a>
+                <a
+                  class="nav-link"
+                  href="why-atmor.html"
+                  >чому atmor</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="heaters-applications.html"
+                <a
+                  class="nav-link"
+                  href="heaters-applications.html"
                   >застосування</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">інструкції</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  >інструкції</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">сервіс</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  >сервіс</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">контакти</a>
+                <a
+                  class="nav-link"
+                  href="#"
+                  >контакти</a
+                >
               </li>
             </ul>
           </div>
