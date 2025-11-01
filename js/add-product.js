@@ -27,7 +27,7 @@ export const setupProductForms = (client) => {
       const price = document.getElementById("price").value
       const imgSrc = "img/" + document.getElementById("imgSrc").value
       const imgAlt = productName
-      const id = document.getElementById("id").value
+      const id = document.getElementById("id").value.trim()
       const text = document.getElementById("productInfo").value
       const productInfo = `\n ${text}`
 
@@ -80,7 +80,7 @@ export const setupProductForms = (client) => {
         return
       }
 
-      const idDelete = document.getElementById("idDelete").value
+      const idDelete = document.getElementById("idDelete").value.trim()
 
       fetch(`${API_BASE}/delete-product/${idDelete}`, {
         method: "DELETE",
@@ -121,7 +121,7 @@ export const setupProductForms = (client) => {
         : ""
       const productInfoChange =
         document.getElementById("productInfoChange").value
-      const idChange = document.getElementById("idChange").value
+      const idChange = document.getElementById("idChange").value.trim()
       // console.log(idChange)
 
       const updatedProduct = {}
