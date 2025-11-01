@@ -25,7 +25,7 @@ export const setupProductForms = (client) => {
         .filter((s) => s.length > 0)
       const productName = document.getElementById("productName").value
       const price = document.getElementById("price").value
-      const imgSrc = document.getElementById("imgSrc").value
+      const imgSrc = "img/" + document.getElementById("imgSrc").value
       const imgAlt = productName
       const id = document.getElementById("id").value
       const text = document.getElementById("productInfo").value
@@ -117,6 +117,8 @@ export const setupProductForms = (client) => {
         document.getElementById("productNameChange").value
       const priceChange = document.getElementById("priceChange").value
       const imgSrcChange = document.getElementById("imgSrcChange").value
+        ? "img/" + document.getElementById("imgSrcChange").value
+        : ""
       const productInfoChange =
         document.getElementById("productInfoChange").value
       const idChange = document.getElementById("idChange").value
