@@ -17,13 +17,24 @@
       <a href="index.html">Main page</a>
       <form id="productForm">
         <label for="applications">Applications:</label>
-        <input
+        <!-- <input
           placeholder="sink, shower, home, business"
           type="text"
           id="applications"
           name="applications"
           required
-        />
+        /> -->
+
+        <select
+          id="applications"
+          name="applications"
+          title="applications"
+        >
+          <option value="sink">sink</option>
+          <option value="shower">shower</option>
+          <option value="home">home</option>
+          <option value="business">business</option>
+        </select>
 
         <label for="productName">Product Name:</label>
         <input
