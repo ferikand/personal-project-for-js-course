@@ -14,3 +14,73 @@
   max-width: 500px; /* Optional: Limit width for better UX on wide screens */
   margin: 0 auto; /* Center the alert within .alert-container */
 }
+
+/* Базовый стиль для custom-alert */
+.custom-alert {
+  --bs-alert-padding-x: 1rem;
+  --bs-alert-padding-y: 1rem;
+  --bs-alert-margin-bottom: 1rem;
+  --bs-alert-border-radius: 0.375rem; /* Закругление углов */
+  --bs-alert-border-width: 1px;
+  --bs-alert-bg: transparent;
+  --bs-alert-border-color: transparent;
+  --bs-alert-color: inherit;
+
+  position: relative;
+  margin: auto;
+  padding: var(--bs-alert-padding-y) var(--bs-alert-padding-x);
+  margin-bottom: var(--bs-alert-margin-bottom);
+  border: var(--bs-alert-border-width) solid var(--bs-alert-border-color);
+  border-radius: var(--bs-alert-border-radius);
+  color: var(--bs-alert-color);
+  background-color: var(--bs-alert-bg);
+  display: flex; /* Чтобы выровнять сообщение и кнопку закрытия */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 500px; /* Занимает всю доступную ширину контейнера */
+}
+
+/* Стили для сообщения внутри алерта */
+.custom-alert-message {
+  font-weight: 700; /* Жирный шрифт, как в Bootstrap */
+}
+
+/* Кнопка закрытия */
+.custom-alert-close-btn {
+  /* Стиль для значка 'x' */
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 700;
+  opacity: 0.5; /* Полупрозрачность */
+  cursor: pointer;
+  padding: 0 0.5em; /* Добавляем отступы вокруг 'x' для удобства нажатия */
+  margin: calc(-1 * var(--bs-alert-padding-y)) 0
+    calc(-1 * var(--bs-alert-padding-y)) var(--bs-alert-padding-x); /* Растягиваем на всю высоту и смещаем вправо */
+}
+
+.custom-alert-close-btn:hover {
+  opacity: 0.75;
+}
+
+/* --- Контекстные стили --- */
+
+/* Success Alert (Успех) */
+.custom-alert-success {
+  --bs-success-rgb: 25, 135, 84; /* Зеленый цвет Bootstrap (Success) */
+  --bs-alert-color: #0f5132;
+  --bs-alert-bg: #d1e7dd;
+  --bs-alert-border-color: #badbcc;
+  /* Для кастомной кнопки закрытия, чтобы она соответствовала цвету */
+  /* Можно использовать 'color' для стилизации 'x' */
+  /* color: var(--bs-alert-color); */
+}
+
+/* Danger Alert (Опасность/Ошибка) */
+.custom-alert-danger {
+  --bs-danger-rgb: 220, 53, 69; /* Красный цвет Bootstrap (Danger) */
+  --bs-alert-color: #842029;
+  --bs-alert-bg: #f8d7da;
+  --bs-alert-border-color: #f5c2c7;
+  /* Для кастомной кнопки закрытия, чтобы она соответствовала цвету */
+  /* color: var(--bs-alert-color); */
+}
