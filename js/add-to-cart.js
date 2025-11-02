@@ -9,7 +9,7 @@ const domElements = {
   wholePageModal: document.querySelector(".whole_page-modal"),
   smallModal: document.querySelector(".modal-small"),
   modalCart: document.querySelector(".modal-cart"),
-  closeBtn: document.querySelector(".btn-close"),
+  cartCloseBtn: document.querySelector("#modal-cart .btn-close"),
   totalQuantityOfChoosenProducts: document.querySelector(
     "#total-quantity-choosen"
   ),
@@ -181,8 +181,8 @@ const initializeEventListeners = () => {
     domElements.addQty.addEventListener("click", handleAddQty)
   if (domElements.smallModal)
     domElements.smallModal.addEventListener("click", handleSmallModalClick)
-  if (domElements.closeBtn)
-    domElements.closeBtn.addEventListener("click", handleCloseCart)
+  if (domElements.cartCloseBtn)
+    domElements.cartCloseBtn.addEventListener("click", handleCloseCart)
 
   // Делегування подій для кнопок в корзині
   const cartProductListContainer = document.querySelector(

@@ -153,7 +153,6 @@ nav ul li.active {
 }
 .offcanvas-body .inside-list_container ul {
   flex-direction: column;
-  outline: orangered;
   list-style-type: none;
 }
 .offcanvas-body .inside-list_container ul li.inside-list_element {
