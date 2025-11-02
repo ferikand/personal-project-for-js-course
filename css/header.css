@@ -158,7 +158,7 @@ nav ul li.active {
 }
 .offcanvas-body .inside-list_container ul li.inside-list_element {
   width: 100%;
-  border-bottom: 1px #b40e0e solid;
+  border-bottom: 1px #de0d0d solid;
   border-left: none;
   border-right: none;
   border-top: none;
@@ -181,7 +181,7 @@ nav ul li.active {
 .inside-list_element__link:hover,
 .inside-list_element__link:focus,
 .inside-list_element__link:active {
-  color: #b40e0e;
+  color: #de0d0d;
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 1.1em;
