@@ -28,6 +28,7 @@ async function init() {
     loginFormModule,
     addToCart,
     cart,
+    activeLinkManagement,
   ] = await Promise.all([
     import("./home-solutions.js"),
     import("./heaters-applications.js"),
@@ -35,14 +36,20 @@ async function init() {
     import("./login-form.js"),
     import("./add-to-cart.js"),
     import("./cart.js"),
+    import("./active-link-management.js"),
   ])
 
   loginFormModule?.initLoginForm?.(supabaseClient)
 
-  // const addProductModule = await import("./add-product.js")
-  // addProductModule.setupProductForms(supabaseClient)
-
-  return { supabaseClient }
+  return {
+    supabaseClient,
+    activeLinkManagement,
+    cart,
+    addToCart,
+    product,
+    heatersApplications,
+    homeSolutions,
+  }
 }
 
 const totalPartials = document.querySelectorAll(
@@ -53,8 +60,9 @@ let loadedPartialsCount = 0
 document.body.addEventListener("htmx:afterOnLoad", async () => {
   loadedPartialsCount++
   if (loadedPartialsCount === totalPartials) {
-    const { supabaseClient } = await init()
+    const { supabaseClient, activeLinkManagement } = await init()
     const addProductModule = await import("./add-product.js")
     addProductModule.setupProductForms(supabaseClient)
+    activeLinkManagement?.setActiveLink?.()
   }
 })

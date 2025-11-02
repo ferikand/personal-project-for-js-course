@@ -120,11 +120,17 @@ nav ul li a {
 }
 
 nav ul li i {
+  color: #333;
+}
+
+nav ul li.active i {
   color: #fff;
 }
 
 nav ul li.active {
   background-color: #dc0132;
+}
+nav ul li.active a {
   color: #fff;
 }
 
@@ -153,11 +159,12 @@ nav ul li.active {
 }
 .offcanvas-body .inside-list_container ul {
   flex-direction: column;
+  outline: orangered;
   list-style-type: none;
 }
 .offcanvas-body .inside-list_container ul li.inside-list_element {
   width: 100%;
-  border-bottom: 1px #de0d0d solid;
+  border-bottom: 1px #d10c0c solid;
   border-left: none;
   border-right: none;
   border-top: none;
