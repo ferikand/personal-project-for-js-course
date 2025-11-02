@@ -21,11 +21,11 @@ export function showAlert(message, success = true) {
     alertContainer.innerHTML = ""
   }, 3000)
 
-  alertContainer.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("custom-alert-close-btn")) {
-      handleSmallModalClick(e)
-    }
-  })
+  // alertContainer.addEventListener("click", (e) => {
+  //   if (!e.target.classList.contains("custom-alert-close-btn")) {
+  //     handleSmallModalClick(e)
+  //   }
+  // })
 
   return () => clearTimeout(timer)
 }
