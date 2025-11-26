@@ -202,3 +202,7 @@ nav ul li.active a {
     display: none;
   }
 }
+
+nav ul li.active a:hover {
+  color: #fff !important; /* Оставаться белым при наведении */
+}
