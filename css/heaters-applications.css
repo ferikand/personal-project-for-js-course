@@ -100,7 +100,7 @@ a {
   padding: 0 auto;
 }
 
-.heatersContaner {
+.heatersContainer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
